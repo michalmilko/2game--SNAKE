@@ -28,7 +28,7 @@ addEventListener("keydown", pohnut);
 function pohnut(event){
  
   
-////////////////// TLACITKO UP ///////////////
+         ////////////////// TLACITKO UP ///////////////
       if(event.key=="ArrowUp" && poslednetlacitko !== "ArrowDown" && poslednetlacitko !== "ArrowUp"){
          aktivita=true;
          
@@ -78,80 +78,69 @@ function pohnut(event){
                               // default:
                               //    console.log("ahoj");  
                            }
-           
-            
-           
-                           //   ss();
+                            //   ss();
                            if(vstuphore<=0){
                               vstuphore=500;
                            }
                           
                         };
-                        
-                     ide1();
-                    
+                  
+  //////////////////// TLACITKO LEFT                      
+}else if(event.key=="ArrowLeft" && poslednetlacitko !== "ArrowRight" && poslednetlacitko !== "ArrowLeft"){
+   aktivita=false;
+   
+   
+   clearInterval(pravaa);
+   clearInterval(horee);
+   clearInterval(dolee);
+   
+   poslednetlacitko=event.key;
+   lavaa= setInterval(ide3,fps);
+   function ide3(){
+                  vstupstrana-=rychlost;
+                  pohyb.style.left=vstupstrana+"px";
+                 
+                  switch(vstupstrana){
+                     case 50:
+                     console.log("50");
+                     break;
+                     case 100:
+                     console.log("100");
+                     break;
+                     case 150:
+                     console.log("150");
+                     break;
+                     case 200:
+                     console.log("200");
+                     break;
+                     case 250:
+                     console.log("250");
+                     break;
+                     case 300:
+                     console.log("300");
+                     break;
+                     case 350:
+                     console.log("350");
+                     break;
+                     case 400:
+                     console.log("400");
+                     break;
+                     case 450:
+                     console.log("450");
+                     break;
+                     // default:
+                     //    console.log("ahoj");  
+                  }
+                  // ss();
+                  
+                  if(vstupstrana<=0){
+                  vstupstrana=500;
+                  }
+                  }
+                              
                                        
  ///////////////// TLACITKO DOWN   ////////////////////                 
          }else if(event.key=="ArrowDown" && poslednetlacitko !== "ArrowUp" && poslednetlacitko !== "ArrowDown"){
-            aktivita=true;
-         
-         
-            clearInterval(pravaa);
-            clearInterval(lavaa);
-            clearInterval(horee);
-            
-            poslednetlacitko=event.key;
-            horee= setInterval(ide2,fps);
-             
-            function ide2(){
-            
-              
-                                vstuphore= vstuphore+rychlost;
-                                pohyb.style.top=vstuphore+"px"; 
-                                skuska =vstuphore;
-                                
-                                switch(vstuphore){
-                                 case 50:
-                                 console.log("50");
-                                 break;
-                                 case 100:
-                                 console.log("100");
-                                 break;
-                                 case 150:
-                                 console.log("150");
-                                 break;
-                                 case 200:
-                                 console.log("200");
-                                 break;
-                                 case 250:
-                                 console.log("250");
-                                 break;
-                                 case 300:
-                                 console.log("300");
-                                 break;
-                                 case 350:
-                                 console.log("350");
-                                 break;
-                                 case 400:
-                                 console.log("400");
-                                 break;
-                                 case 450:
-                                 console.log("500");
-                                 break;
-                                 // default:
-                                 //    console.log("ahoj");  
-                              }
-              
-               
-              
-                              //   ss();
-                              if(vstuphore<=0){
-                                 vstuphore=500;
-                              }
-                             
-                           };
-                           
-                        ide1();
            aktivita=true;
             clearInterval(pravaa);
             clearInterval(horee);
@@ -202,63 +191,7 @@ function pohnut(event){
                            }
                            }
                      
-                    ide2();    
- //////////////////// TLACITKO RIGHT                      
-         }else if(event.key=="ArrowLeft" && poslednetlacitko !== "ArrowRight" && poslednetlacitko !== "ArrowLeft"){
-            aktivita=false;
-            
-            
-            clearInterval(pravaa);
-            clearInterval(horee);
-            clearInterval(dolee);
-            
-            poslednetlacitko=event.key;
-            lavaa= setInterval(ide3,fps);
-            function ide3(){
-                           vstupstrana-=rychlost;
-                           pohyb.style.left=vstupstrana+"px";
-                          
-                           switch(vstupstrana){
-                              case 50:
-                              console.log("50");
-                              break;
-                              case 100:
-                              console.log("100");
-                              break;
-                              case 150:
-                              console.log("150");
-                              break;
-                              case 200:
-                              console.log("200");
-                              break;
-                              case 250:
-                              console.log("250");
-                              break;
-                              case 300:
-                              console.log("300");
-                              break;
-                              case 350:
-                              console.log("350");
-                              break;
-                              case 400:
-                              console.log("400");
-                              break;
-                              case 450:
-                              console.log("450");
-                              break;
-                              // default:
-                              //    console.log("ahoj");  
-                           }
-                           // ss();
-                           
-                           if(vstupstrana<=0){
-                           vstupstrana=500;
-                           }
-                           }
-                       ide3(); 
-
-                     
-////////////////////// TLACITKO LEFT
+////////////////////// TLACITKO RIGHT
          }else  if(event.key=="ArrowRight" && poslednetlacitko !== "ArrowLeft" && poslednetlacitko !== "ArrowRight"){
            aktivita=false;
             clearInterval(lavaa);
@@ -307,7 +240,7 @@ function pohnut(event){
                            vstupstrana=0-sirkasnake;
                            }
                            }
-                      ide4(); 
+               
                         
           }  
           
