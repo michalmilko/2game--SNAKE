@@ -93,6 +93,65 @@ function pohnut(event){
                                        
  ///////////////// TLACITKO DOWN   ////////////////////                 
          }else if(event.key=="ArrowDown" && poslednetlacitko !== "ArrowUp" && poslednetlacitko !== "ArrowDown"){
+            aktivita=true;
+         
+         
+            clearInterval(pravaa);
+            clearInterval(lavaa);
+            clearInterval(horee);
+            
+            poslednetlacitko=event.key;
+            horee= setInterval(ide2,fps);
+             
+            function ide2(){
+            
+              
+                                vstuphore= vstuphore+rychlost;
+                                pohyb.style.top=vstuphore+"px"; 
+                                skuska =vstuphore;
+                                
+                                switch(vstuphore){
+                                 case 50:
+                                 console.log("50");
+                                 break;
+                                 case 100:
+                                 console.log("100");
+                                 break;
+                                 case 150:
+                                 console.log("150");
+                                 break;
+                                 case 200:
+                                 console.log("200");
+                                 break;
+                                 case 250:
+                                 console.log("250");
+                                 break;
+                                 case 300:
+                                 console.log("300");
+                                 break;
+                                 case 350:
+                                 console.log("350");
+                                 break;
+                                 case 400:
+                                 console.log("400");
+                                 break;
+                                 case 450:
+                                 console.log("500");
+                                 break;
+                                 // default:
+                                 //    console.log("ahoj");  
+                              }
+              
+               
+              
+                              //   ss();
+                              if(vstuphore<=0){
+                                 vstuphore=500;
+                              }
+                             
+                           };
+                           
+                        ide1();
            aktivita=true;
             clearInterval(pravaa);
             clearInterval(horee);
