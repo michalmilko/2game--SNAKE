@@ -1,14 +1,15 @@
 ///////////////////////// SNAKE /////////////////////////
+
+
+///////////////////////DEKLARACIE///////////////////////
 var sirkasnake=50;
 var vyskasnake=50;
 
-var pohyb= document.getElementById("snake");
+var pohyb=document.getElementById("snake");
 var vloz=document.getElementById("celahra");
 
 pohyb.style.width=sirkasnake+"px";
 pohyb.style.height=sirkasnake+"px";
-
-
 
 var fps=10;
 var rychlost=1;
@@ -22,23 +23,29 @@ var vstuphore=200;
 var vstupstrana=200;
 var aktivitaupdown, aktivitaleftright;
 
+
+//KLAVESNICA A VOLANIE HLAVNEJ FUNKCIE
 addEventListener("keydown", pohnut);
  
+//HLAVNA FUNKCIA
 function pohnut(event){
  
- 
+//STLACENIE UP TLACITKA
       if(event.key=="ArrowUp" && poslednetlacitko !== "ArrowDown" && poslednetlacitko !== "ArrowUp"){
+
+              //STOP INTERVAL VOLANEJ FUNKCIE PRAVA/LAVA
                clearInterval(pravaa);
                clearInterval(lavaa);
+               //OZNACENIE Z KTOREJ STRANY PRICHADZA
                aktivitaupdown=true;
+               //NASTAVENIE INTERVALU A VOLANIE FUNKCIE
                horee= setInterval(ide1,fps);
-
+         //SPUSTENIE FUNKCIE-POHYB
          function ide1(){
-        
+                                 //POHYB PO SACHOVNICI
                                  switch(vstupstrana){
                                  case 0:
 
-                                   
                                     vstuphore-=rychlost;
                                     pohyb.style.top=vstuphore+"px";
                                     console.log("vstupstrana-350");
@@ -46,15 +53,13 @@ function pohnut(event){
                                  break;
                                  case 50:
 
-                                    
-                                    vstuphore-=rychlost;
+                                     vstuphore-=rychlost;
                                     pohyb.style.top=vstuphore+"px";
                                     console.log("vstupstrana-350");
                                     
                                  break;
                                  case 100:
 
-                                    
                                     vstuphore-=rychlost;
                                     pohyb.style.top=vstuphore+"px";
                                     console.log("vstupstrana-350");
@@ -62,23 +67,20 @@ function pohnut(event){
                                  break;
                                  case 150:
 
-                                    
-                                    vstuphore-=rychlost;
+                                     vstuphore-=rychlost;
                                     pohyb.style.top=vstuphore+"px";
                                     console.log("vstupstrana-350");
                                     
                                  break;
                                  case 200:
 
-                                    
-                                    vstuphore-=rychlost;
+                                     vstuphore-=rychlost;
                                     pohyb.style.top=vstuphore+"px";
                                     console.log("vstupstrana-350");
                                     
                                  break;
                                  case 250:
 
-                                    
                                     vstuphore-=rychlost;
                                     pohyb.style.top=vstuphore+"px";
                                     console.log("vstupstrana-350");
@@ -86,7 +88,6 @@ function pohnut(event){
                                  break;
                                  case 300:
 
-                                   
                                     vstuphore-=rychlost;
                                     pohyb.style.top=vstuphore+"px";
                                     console.log("vstupstrana-350");
@@ -94,7 +95,6 @@ function pohnut(event){
                                  break;
                                  case 350:
 
-                                    
                                     vstuphore-=rychlost;
                                     pohyb.style.top=vstuphore+"px";
                                     console.log("vstupstrana-350");
@@ -102,7 +102,6 @@ function pohnut(event){
                                  break;
                                  case 400:
 
-                                    
                                     vstuphore-=rychlost;
                                     pohyb.style.top=vstuphore+"px";
                                     console.log("vstupstrana-350");
@@ -110,13 +109,13 @@ function pohnut(event){
                                  break;
                                  case 450:
 
-                                    
                                     vstuphore-=rychlost;
                                     pohyb.style.top=vstuphore+"px";
                                     console.log("vstupstrana-350");
                                     
                                  break;
                                    default:
+                                      //DOTIAHNUTIE SACHOVNICE Z PREDOSLEJ STRANY
                                        if(aktivitaleftright==true){
                                        console.log("L po UP");
                                        vstupstrana-=rychlost;
@@ -130,27 +129,31 @@ function pohnut(event){
                                  }
                           
                               // ss();
+                           //POHYB MIMO SACHOVNICE
                            if(vstuphore==-50){
                               vstuphore=500;
                            }
                        
                         }
                     ide1();
+                    //OZNACENIE POSLEDNEHO TLACITKA
                     poslednetlacitko=event.key;
-  //////////////////// TLACITKO LEFT                      
+//STLACENIE LEFT TLACITKA                     
 }else if(event.key=="ArrowLeft" && poslednetlacitko !== "ArrowRight" && poslednetlacitko !== "ArrowLeft"){
 
+            //STOP INTERVAL VOLANEJ FUNKCIE UP/DOWN
             clearInterval(dolee);
             clearInterval(horee);
+            //OZNACENIE Z KTOREJ STRANY PRICHADZA
             aktivitaleftright=true;
+            //NASTAVENIE INTERVALU A VOLANIE FUNKCIE
             lavaa= setInterval(ide3,fps);
-   
+   //SPUSTENIE FUNKCIE-POHYB
    function ide3(){
 
-                 
+                 //POHYB PO SACHOVNICI
                   switch(vstuphore){
                      case 0:
-                        
                         
                         vstupstrana-=rychlost;
                         pohyb.style.left=vstupstrana+"px";
@@ -159,14 +162,12 @@ function pohnut(event){
                      break;
                      case 50:
                         
-                       
                         vstupstrana-=rychlost;
                         pohyb.style.left=vstupstrana+"px";
                         console.log("vstuphore-50");
 
                      break;
                      case 100:
-                        
                         
                         vstupstrana-=rychlost;
                         pohyb.style.left=vstupstrana+"px";
@@ -175,7 +176,6 @@ function pohnut(event){
                      break;
                      case 150:
                         
-                        
                         vstupstrana-=rychlost;
                         pohyb.style.left=vstupstrana+"px";
                         console.log("vstuphore-150");
@@ -183,22 +183,19 @@ function pohnut(event){
                      break;
                      case 200:
                         
-                        
-                        vstupstrana-=rychlost;
+                         vstupstrana-=rychlost;
                         pohyb.style.left=vstupstrana+"px";
                         console.log("vstuphore-200");
 
                      break;
                      case 250:
                         
-                       
                         vstupstrana-=rychlost;
                         pohyb.style.left=vstupstrana+"px";
                         console.log("vstuphore-250");
 
                      break;
                      case 300:
-                        
                         
                         vstupstrana-=rychlost;
                         pohyb.style.left=vstupstrana+"px";
@@ -207,14 +204,12 @@ function pohnut(event){
                      break;
                      case 350:
                         
-                        
                         vstupstrana-=rychlost;
                         pohyb.style.left=vstupstrana+"px";
                         console.log("vstuphore-350");
 
                      break;
                      case 400:
-                        
                         
                         vstupstrana-=rychlost;
                         pohyb.style.left=vstupstrana+"px";
@@ -223,13 +218,13 @@ function pohnut(event){
                      break;
                      case 450:
                         
-                       
                         vstupstrana-=rychlost;
                         pohyb.style.left=vstupstrana+"px";
                         console.log("vstuphore-450");
 
                      break;
                      default:
+                        //DOTIAHNUTIE SACHOVNICE Z PREDOSLEJ STRANY
                         if(aktivitaupdown==true){
                         console.log("L po UP");
                         vstuphore-=rychlost;
@@ -242,7 +237,7 @@ function pohnut(event){
 
                   }
                   // ss();
-                  
+                  //POHYB MIMO SACHOVNICE
                   if(vstupstrana==-50){
                   vstupstrana=500;
                   }
@@ -250,21 +245,26 @@ function pohnut(event){
               
                   }
               ide3();
+              //OZNACENIE POSLEDNEHO TLACITKA
               poslednetlacitko=event.key;
 
- /////////////// TLACITKO DOWN   ////////////////////                 
+ //STLACENIE DOWN TLACITKA                
          }else if(event.key=="ArrowDown" && poslednetlacitko !== "ArrowUp" && poslednetlacitko !== "ArrowDown"){
-            clearInterval(pravaa);
-            clearInterval(lavaa);
-            aktivitaupdown=false;
-            dolee= setInterval(ide2,fps);
 
-              function ide2(){
-               
+                  //STOP INTERVAL VOLANEJ FUNKCIE PRAVA/LAVA
+                  clearInterval(pravaa);
+                  clearInterval(lavaa);
+                  //OZNACENIE Z KTOREJ STRANY PRICHADZA
+                  aktivitaupdown=false;
+                  //NASTAVENIE INTERVALU A VOLANIE FUNKCIE
+                  dolee= setInterval(ide2,fps);
+            //SPUSTENIE FUNKCIE-POHYB
+            function ide2(){
+
+                           //POHYB PO SACHOVNICI
                            switch(vstupstrana){
                               case 0:
                               
-                                 clearInterval(lavaa);
                                  vstuphore+=rychlost;
                                  pohyb.style.top=vstuphore+"px";
                                  console.log("0");
@@ -272,7 +272,6 @@ function pohnut(event){
                               break;
                               case 50:
                               
-                                 clearInterval(lavaa);
                                  vstuphore+=rychlost;
                                  pohyb.style.top=vstuphore+"px";
                                  console.log("50");
@@ -280,7 +279,6 @@ function pohnut(event){
                               break;
                               case 100:
                               
-                                 clearInterval(lavaa);
                                  vstuphore+=rychlost;
                                  pohyb.style.top=vstuphore+"px";
                                  console.log("100");
@@ -288,7 +286,6 @@ function pohnut(event){
                               break;
                               case 150:
                               
-                                 clearInterval(lavaa);
                                  vstuphore+=rychlost;
                                  pohyb.style.top=vstuphore+"px";
                                  console.log("150");
@@ -296,7 +293,6 @@ function pohnut(event){
                               break;
                               case 200:
                               
-                                 clearInterval(lavaa);
                                  vstuphore+=rychlost;
                                  pohyb.style.top=vstuphore+"px";
                                  console.log("200");
@@ -304,7 +300,6 @@ function pohnut(event){
                               break;
                               case 250:
                               
-                                 clearInterval(lavaa);
                                  vstuphore+=rychlost;
                                  pohyb.style.top=vstuphore+"px";
                                  console.log("250");
@@ -312,7 +307,6 @@ function pohnut(event){
                               break;
                               case 300:
                               
-                                 clearInterval(lavaa);
                                  vstuphore+=rychlost;
                                  pohyb.style.top=vstuphore+"px";
                                  console.log("300");
@@ -320,7 +314,6 @@ function pohnut(event){
                               break;
                               case 350:
                               
-                                 clearInterval(lavaa);
                                  vstuphore+=rychlost;
                                  pohyb.style.top=vstuphore+"px";
                                  console.log("350");
@@ -328,7 +321,6 @@ function pohnut(event){
                               break;
                               case 400:
                               
-                                 clearInterval(lavaa);
                                  vstuphore+=rychlost;
                                  pohyb.style.top=vstuphore+"px";
                                  console.log("400");
@@ -336,13 +328,13 @@ function pohnut(event){
                               break;
                               case 450:
                               
-                                 clearInterval(lavaa);
                                  vstuphore+=rychlost;
                                  pohyb.style.top=vstuphore+"px";
                                  console.log("450");
                                  
                               break;
                                  default:
+                                    //DOTIAHNUTIE SACHOVNICE Z PREDOSLEJ STRANY
                                     if(aktivitaleftright==true){
                                     console.log("L po UP");
                                     vstupstrana-=rychlost;
@@ -354,29 +346,33 @@ function pohnut(event){
                                  }
                            }
                         //   ss();
-                        
+                           //POHYB MIMO SACHOVNICE
                            if(vstuphore>=500){
                            vstuphore=0-vyskasnake;
                            }
                            }
                            ide2();
+                           //OZNACENIE POSLEDNEHO TLACITKA
                            poslednetlacitko=event.key;
                    
                   
-
+//STLACENIE RIGHT TLACITKA
    }else  if(event.key=="ArrowRight" && poslednetlacitko !== "ArrowLeft" && poslednetlacitko !== "ArrowRight"){
-         
+
+                     //STOP INTERVAL VOLANEJ FUNKCIE UP/DOWN
                      clearInterval(dolee);
                      clearInterval(horee);
+                     //OZNACENIE Z KTOREJ STRANY PRICHADZA
                      aktivitaleftright=false;
+                     //NASTAVENIE INTERVALU A VOLANIE FUNKCIE
                      pravaa= setInterval(ide4,fps);
-
+            //SPUSTENIE FUNKCIE-POHYB
             function ide4(){
-                          
+
+                           //POHYB PO SACHOVNICI           
                             switch(vstuphore){
                               case 0:
                                  
-                                 clearInterval(dolee);
                                  vstupstrana+=rychlost;
                                  pohyb.style.left=vstupstrana+"px";
                                  console.log("0");
@@ -384,7 +380,6 @@ function pohnut(event){
                               break;
                               case 50:
                                  
-                                 clearInterval(dolee);
                                  vstupstrana+=rychlost;
                                  pohyb.style.left=vstupstrana+"px";
                                  console.log("50");
@@ -392,7 +387,6 @@ function pohnut(event){
                               break;
                               case 100:
                                  
-                                 clearInterval(dolee);
                                  vstupstrana+=rychlost;
                                  pohyb.style.left=vstupstrana+"px";
                                  console.log("100");
@@ -400,7 +394,6 @@ function pohnut(event){
                               break;
                               case 150:
                                  
-                                 clearInterval(dolee);
                                  vstupstrana+=rychlost;
                                  pohyb.style.left=vstupstrana+"px";
                                  console.log("150");
@@ -408,7 +401,6 @@ function pohnut(event){
                               break;
                               case 200:
                                  
-                                 clearInterval(dolee);
                                  vstupstrana+=rychlost;
                                  pohyb.style.left=vstupstrana+"px";
                                  console.log("200");
@@ -416,7 +408,6 @@ function pohnut(event){
                               break;
                               case 250:
                                  
-                                 clearInterval(dolee);
                                  vstupstrana+=rychlost;
                                  pohyb.style.left=vstupstrana+"px";
                                  console.log("250");
@@ -424,7 +415,6 @@ function pohnut(event){
                               break;
                               case 300:
                                  
-                                 clearInterval(dolee);
                                  vstupstrana+=rychlost;
                                  pohyb.style.left=vstupstrana+"px";
                                  console.log("300");
@@ -432,7 +422,6 @@ function pohnut(event){
                               break;
                               case 350:
                                  
-                                 clearInterval(dolee);
                                  vstupstrana+=rychlost;
                                  pohyb.style.left=vstupstrana+"px";
                                  console.log("350");
@@ -440,7 +429,6 @@ function pohnut(event){
                               break;
                               case 400:
                                  
-                                 clearInterval(dolee);
                                  vstupstrana+=rychlost;
                                  pohyb.style.left=vstupstrana+"px";
                                  console.log("400");
@@ -448,13 +436,13 @@ function pohnut(event){
                               break;
                               case 450:
                                  
-                                 clearInterval(dolee);
                                  vstupstrana+=rychlost;
                                  pohyb.style.left=vstupstrana+"px";
                                  console.log("450");
 
                               break;
                                default:
+                                  //DOTIAHNUTIE SACHOVNICE Z PREDOSLEJ STRANY
                                  if(aktivitaupdown==true){
                                     console.log("P po UP");
                                     vstuphore-=rychlost;
@@ -466,12 +454,13 @@ function pohnut(event){
                                  } 
                            }
                            // ss();
-                           
+                           //POHYB MIMO SACHOVNICE
                            if(vstupstrana>=500-sirkasnake){
                            vstupstrana=0-sirkasnake;
                            }
                            }
                            ide4();
+                           //OZNACENIE POSLEDNEHO TLACITKA
                            poslednetlacitko=event.key;
                 
           }  
