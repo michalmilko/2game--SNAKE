@@ -8,8 +8,7 @@ var vloz=document.getElementById("celahra");
 pohyb.style.width=sirkasnake+"px";
 pohyb.style.height=sirkasnake+"px";
 
-var vstuphore=200;
-var vstupstrana=50;
+
 
 var fps=10;
 var rychlost=1;
@@ -19,219 +18,225 @@ var poslednetlacitko;
 var x,y;
 var jedlokocka;
 var vytor;
-
+var vstuphore=200;
+var vstupstrana=200;
 
 addEventListener("keydown", pohnut);
  
 function pohnut(event){
  
-  
-         ////////////////// TLACITKO UP ///////////////
+ 
       if(event.key=="ArrowUp" && poslednetlacitko !== "ArrowDown" && poslednetlacitko !== "ArrowUp"){
-         
-         
-         poslednetlacitko=event.key;
-         horee= setInterval(ide1,fps);
-          
+
+               clearInterval(lavaa);
+               poslednetlacitko=event.key;
+               horee= setInterval(ide1,fps);
+
          function ide1(){
-            console.log("HORE");
-                            switch(vstupstrana){
-                              case 0:
-                                 clearInterval(pravaa);
-                                 clearInterval(lavaa);
-                                 clearInterval(dolee);
-                                 vstuphore-=rychlost;
-                                 pohyb.style.top=vstuphore+"px";
-                                  console.log("0");
-                              break;
-                              case 50:
-                                 clearInterval(pravaa);
-                                 clearInterval(lavaa);
-                                 clearInterval(dolee);
-                                 vstuphore-=rychlost;
-                                 pohyb.style.top=vstuphore+"px";
-                                  console.log("0");
-                              break;
-                              case 100:
-                                 clearInterval(pravaa);
-                                 clearInterval(lavaa);
-                                 clearInterval(dolee);
-                                 vstuphore-=rychlost;
-                                 pohyb.style.top=vstuphore+"px";
-                                  console.log("0");
-                              break;
-                              case 150:
-                                 clearInterval(pravaa);
-                                 clearInterval(lavaa);
-                                 clearInterval(dolee);
-                                 vstuphore-=rychlost;
-                                 pohyb.style.top=vstuphore+"px";
-                                  console.log("0");
-                              break;
-                              case 200:
-                                 clearInterval(pravaa);
-                                 clearInterval(lavaa);
-                                 clearInterval(dolee);
-                                 vstuphore-=rychlost;
-                                 pohyb.style.top=vstuphore+"px";
-                                  console.log("0");
-                              break;
-                              case 250:
-                                 clearInterval(pravaa);
-                                 clearInterval(lavaa);
-                                 clearInterval(dolee);
-                                 vstuphore-=rychlost;
-                                 pohyb.style.top=vstuphore+"px";
-                                  console.log("0");
-                              break;
-                              case 300:
-                                 clearInterval(pravaa);
-                                 clearInterval(lavaa);
-                                 clearInterval(dolee);
-                                 vstuphore-=rychlost;
-                                 pohyb.style.top=vstuphore+"px";
-                                  console.log("0");
-                              break;
-                              case 350:
-                                 clearInterval(pravaa);
-                                 clearInterval(lavaa);
-                                 clearInterval(dolee);
-                                 vstuphore-=rychlost;
-                                 pohyb.style.top=vstuphore+"px";
-                                  console.log("0");
-                              break;
-                              case 400:
-                                 clearInterval(pravaa);
-                                 clearInterval(lavaa);
-                                 clearInterval(dolee);
-                                 vstuphore-=rychlost;
-                                 pohyb.style.top=vstuphore+"px";
-                                  console.log("0");
-                              break;
-                              case 450:
-                                 clearInterval(pravaa);
-                                 clearInterval(lavaa);
-                                 clearInterval(dolee);
-                                 vstuphore-=rychlost;
-                                 pohyb.style.top=vstuphore+"px";
-                                  console.log("0");
-                              break;
-                               default:
-                                  console.log("default");
-                              vstuphore-=rychlost;
-                              pohyb.style.top=vstuphore+"px"; 
-                              
-                           }
+        
+                                 switch(vstupstrana){
+                                 case 0:
+
+                                    clearInterval(lavaa);
+                                    vstuphore-=rychlost;
+                                    pohyb.style.top=vstuphore+"px";
+                                    console.log("vstupstrana-350");
+                                    
+                                 break;
+                                 case 50:
+
+                                    clearInterval(lavaa);
+                                    vstuphore-=rychlost;
+                                    pohyb.style.top=vstuphore+"px";
+                                    console.log("vstupstrana-350");
+                                    
+                                 break;
+                                 case 100:
+
+                                    clearInterval(lavaa);
+                                    vstuphore-=rychlost;
+                                    pohyb.style.top=vstuphore+"px";
+                                    console.log("vstupstrana-350");
+                                    
+                                 break;
+                                 case 150:
+
+                                    clearInterval(lavaa);
+                                    vstuphore-=rychlost;
+                                    pohyb.style.top=vstuphore+"px";
+                                    console.log("vstupstrana-350");
+                                    
+                                 break;
+                                 case 200:
+
+                                    clearInterval(lavaa);
+                                    vstuphore-=rychlost;
+                                    pohyb.style.top=vstuphore+"px";
+                                    console.log("vstupstrana-350");
+                                    
+                                 break;
+                                 case 250:
+
+                                    clearInterval(lavaa);
+                                    vstuphore-=rychlost;
+                                    pohyb.style.top=vstuphore+"px";
+                                    console.log("vstupstrana-350");
+                                    
+                                 break;
+                                 case 300:
+
+                                    clearInterval(lavaa);
+                                    vstuphore-=rychlost;
+                                    pohyb.style.top=vstuphore+"px";
+                                    console.log("vstupstrana-350");
+                                    
+                                 break;
+                                 case 350:
+
+                                    clearInterval(lavaa);
+                                    vstuphore-=rychlost;
+                                    pohyb.style.top=vstuphore+"px";
+                                    console.log("vstupstrana-350");
+
+                                 break;
+                                 case 400:
+
+                                    clearInterval(lavaa);
+                                    vstuphore-=rychlost;
+                                    pohyb.style.top=vstuphore+"px";
+                                    console.log("vstupstrana-350");
+                                    
+                                 break;
+                                 case 450:
+
+                                    clearInterval(lavaa);
+                                    vstuphore-=rychlost;
+                                    pohyb.style.top=vstuphore+"px";
+                                    console.log("vstupstrana-350");
+                                    
+                                 break;
+
+                                 default:
+                                    vstupstrana-=rychlost;
+                                    pohyb.style.left=vstupstrana+"px";
+                                    console.log("h");
+                                 }
                           
                               // ss();
                            if(vstuphore==-50){
                               vstuphore=500;
                            }
-                          
-                        };
                        
+                        }
+                    ide1();
   //////////////////// TLACITKO LEFT                      
 }else if(event.key=="ArrowLeft" && poslednetlacitko !== "ArrowRight" && poslednetlacitko !== "ArrowLeft"){
- 
-    poslednetlacitko=event.key;
-   lavaa= setInterval(ide3,fps);
-  
+
+            clearInterval(horee);
+            poslednetlacitko=event.key;
+            lavaa= setInterval(ide3,fps);
+   
    function ide3(){
-     
+
+                 
                   switch(vstuphore){
                      case 0:
-                        clearInterval(pravaa);
+                        
                         clearInterval(horee);
-                        clearInterval(dolee);
                         vstupstrana-=rychlost;
-                         pohyb.style.left=vstupstrana+"px";
-                     console.log("0");
+                        pohyb.style.left=vstupstrana+"px";
+                        console.log("vstuphore-0");
+
                      break;
                      case 50:
-                        clearInterval(pravaa);
+                        
                         clearInterval(horee);
-                        clearInterval(dolee);
                         vstupstrana-=rychlost;
-                         pohyb.style.left=vstupstrana+"px";
-                     console.log("50");
+                        pohyb.style.left=vstupstrana+"px";
+                        console.log("vstuphore-50");
+
                      break;
                      case 100:
-                        clearInterval(pravaa);
+                        
                         clearInterval(horee);
-                        clearInterval(dolee);
                         vstupstrana-=rychlost;
-                         pohyb.style.left=vstupstrana+"px";
-                     console.log("100");
+                        pohyb.style.left=vstupstrana+"px";
+                        console.log("vstuphore-100");
+
                      break;
                      case 150:
-                        clearInterval(pravaa);
+                        
                         clearInterval(horee);
-                        clearInterval(dolee);
                         vstupstrana-=rychlost;
-                         pohyb.style.left=vstupstrana+"px";
-                     console.log("150");
+                        pohyb.style.left=vstupstrana+"px";
+                        console.log("vstuphore-150");
+
                      break;
                      case 200:
-                        clearInterval(pravaa);
+                        
                         clearInterval(horee);
-                        clearInterval(dolee);
                         vstupstrana-=rychlost;
-                         pohyb.style.left=vstupstrana+"px";
-                     console.log("200");
+                        pohyb.style.left=vstupstrana+"px";
+                        console.log("vstuphore-200");
+
                      break;
                      case 250:
-                        clearInterval(pravaa);
+                        
                         clearInterval(horee);
-                        clearInterval(dolee);
                         vstupstrana-=rychlost;
-                         pohyb.style.left=vstupstrana+"px";
-                     console.log("250");
+                        pohyb.style.left=vstupstrana+"px";
+                        console.log("vstuphore-250");
+
                      break;
                      case 300:
-                        clearInterval(pravaa);
+                        
                         clearInterval(horee);
-                        clearInterval(dolee);
                         vstupstrana-=rychlost;
-                         pohyb.style.left=vstupstrana+"px";
-                     console.log("300");
+                        pohyb.style.left=vstupstrana+"px";
+                        console.log("vstuphore-300");
+
                      break;
                      case 350:
-                        clearInterval(pravaa);
+                        
                         clearInterval(horee);
-                        clearInterval(dolee);
                         vstupstrana-=rychlost;
-                         pohyb.style.left=vstupstrana+"px";
-                     console.log("350");
+                        pohyb.style.left=vstupstrana+"px";
+                        console.log("vstuphore-350");
+
                      break;
                      case 400:
-                        clearInterval(pravaa);
+                        
                         clearInterval(horee);
-                        clearInterval(dolee);
                         vstupstrana-=rychlost;
-                         pohyb.style.left=vstupstrana+"px";
-                     console.log("400");
+                        pohyb.style.left=vstupstrana+"px";
+                        console.log("vstuphore-400");
+
                      break;
                      case 450:
-                        clearInterval(pravaa);
+                        
                         clearInterval(horee);
-                        clearInterval(dolee);
                         vstupstrana-=rychlost;
-                         pohyb.style.left=vstupstrana+"px";
-                     console.log("450");
+                        pohyb.style.left=vstupstrana+"px";
+                        console.log("vstuphore-450");
+
                      break;
                      default:
-                     vstupstrana-=rychlost;
-                         pohyb.style.left=vstupstrana+"px";
+                        console.log("s");
+                        vstuphore-=rychlost;
+                       pohyb.style.top=vstuphore+"px";
                   }
                   // ss();
                   
-                  if(vstupstrana==0){
+                  if(vstupstrana==-50){
                   vstupstrana=500;
                   }
+                   
+              
                   }
-                              
-                                    
- ///////////////// TLACITKO DOWN   ////////////////////                 
+              ide3();
+
+
+ /////////////// TLACITKO DOWN   ////////////////////                 
          }else if(event.key=="ArrowDown" && poslednetlacitko !== "ArrowUp" && poslednetlacitko !== "ArrowDown"){
        
             poslednetlacitko=event.key;
@@ -239,7 +244,7 @@ function pohnut(event){
 
               function ide2(){
                
-                           switch(vstuphore){
+                           switch(vstupstrana){
                               case 50:
                               clearInterval(pravaa);
                               clearInterval(horee);
@@ -323,107 +328,107 @@ function pohnut(event){
                            }
                            }
                  
-////////////////////// TLACITKO RIGHT
-         }else  if(event.key=="ArrowRight" && poslednetlacitko !== "ArrowLeft" && poslednetlacitko !== "ArrowRight"){
+// ////////////////////// TLACITKO RIGHT
+//          }else  if(event.key=="ArrowRight" && poslednetlacitko !== "ArrowLeft" && poslednetlacitko !== "ArrowRight"){
          
-            poslednetlacitko=event.key;
-            pravaa= setInterval(ide4,fps);
+//             poslednetlacitko=event.key;
+//             pravaa= setInterval(ide4,fps);
 
-            function ide4(){
+//             function ide4(){
                           
-                            switch(vstuphore){
-                              case 0:
-                                 clearInterval(lavaa);
-                                 clearInterval(horee);
-                                 clearInterval(dolee);
-                                 vstupstrana+=rychlost;
-                                  pohyb.style.left=vstupstrana+"px";
-                              console.log("0");
-                              break;
-                              case 50:
-                                 clearInterval(lavaa);
-                                 clearInterval(horee);
-                                 clearInterval(dolee);
-                                 vstupstrana+=rychlost;
-                                  pohyb.style.left=vstupstrana+"px";
-                              console.log("50");
-                              break;
-                              case 100:
-                                 clearInterval(lavaa);
-                                 clearInterval(horee);
-                                 clearInterval(dolee);
-                                 vstupstrana+=rychlost;
-                                  pohyb.style.left=vstupstrana+"px";
-                              console.log("100");
-                              break;
-                              case 150:
-                                 clearInterval(lavaa);
-                                 clearInterval(horee);
-                                 clearInterval(dolee);
-                                 vstupstrana+=rychlost;
-                                  pohyb.style.left=vstupstrana+"px";
-                              console.log("150");
-                              break;
-                              case 200:
-                                 clearInterval(lavaa);
-                                 clearInterval(horee);
-                                 clearInterval(dolee);
-                                 vstupstrana+=rychlost;
-                                  pohyb.style.left=vstupstrana+"px";
-                              console.log("200");
-                              break;
-                              case 250:
-                                 clearInterval(lavaa);
-                                 clearInterval(horee);
-                                 clearInterval(dolee);
-                                 vstupstrana+=rychlost;
-                                  pohyb.style.left=vstupstrana+"px";
-                              console.log("250");
-                              break;
-                              case 300:
-                                 clearInterval(lavaa);
-                                 clearInterval(horee);
-                                 clearInterval(dolee);
-                                 vstupstrana+=rychlost;
-                                  pohyb.style.left=vstupstrana+"px";
-                              console.log("300");
-                              break;
-                              case 350:
-                                 clearInterval(lavaa);
-                                 clearInterval(horee);
-                                 clearInterval(dolee);
-                                 vstupstrana+=rychlost;
-                                  pohyb.style.left=vstupstrana+"px";
-                              console.log("350");
-                              break;
-                              case 400:
-                                 clearInterval(lavaa);
-                                 clearInterval(horee);
-                                 clearInterval(dolee);
-                                 vstupstrana+=rychlost;
-                                  pohyb.style.left=vstupstrana+"px";
-                              console.log("400");
-                              break;
-                              case 450:
-                                 clearInterval(lavaa);
-                                 clearInterval(horee);
-                                 clearInterval(dolee);
-                                 vstupstrana+=rychlost;
-                                  pohyb.style.left=vstupstrana+"px";
-                              console.log("450");
-                              break;
-                               default:
-                              vstupstrana+=rychlost;
-                                  pohyb.style.left=vstupstrana+"px"; 
-                           }
-                           // ss();
+//                             switch(vstuphore){
+//                               case 0:
+//                                  clearInterval(lavaa);
+//                                  clearInterval(horee);
+//                                  clearInterval(dolee);
+//                                  vstupstrana+=rychlost;
+//                                   pohyb.style.left=vstupstrana+"px";
+//                               console.log("0");
+//                               break;
+//                               case 50:
+//                                  clearInterval(lavaa);
+//                                  clearInterval(horee);
+//                                  clearInterval(dolee);
+//                                  vstupstrana+=rychlost;
+//                                   pohyb.style.left=vstupstrana+"px";
+//                               console.log("50");
+//                               break;
+//                               case 100:
+//                                  clearInterval(lavaa);
+//                                  clearInterval(horee);
+//                                  clearInterval(dolee);
+//                                  vstupstrana+=rychlost;
+//                                   pohyb.style.left=vstupstrana+"px";
+//                               console.log("100");
+//                               break;
+//                               case 150:
+//                                  clearInterval(lavaa);
+//                                  clearInterval(horee);
+//                                  clearInterval(dolee);
+//                                  vstupstrana+=rychlost;
+//                                   pohyb.style.left=vstupstrana+"px";
+//                               console.log("150");
+//                               break;
+//                               case 200:
+//                                  clearInterval(lavaa);
+//                                  clearInterval(horee);
+//                                  clearInterval(dolee);
+//                                  vstupstrana+=rychlost;
+//                                   pohyb.style.left=vstupstrana+"px";
+//                               console.log("200");
+//                               break;
+//                               case 250:
+//                                  clearInterval(lavaa);
+//                                  clearInterval(horee);
+//                                  clearInterval(dolee);
+//                                  vstupstrana+=rychlost;
+//                                   pohyb.style.left=vstupstrana+"px";
+//                               console.log("250");
+//                               break;
+//                               case 300:
+//                                  clearInterval(lavaa);
+//                                  clearInterval(horee);
+//                                  clearInterval(dolee);
+//                                  vstupstrana+=rychlost;
+//                                   pohyb.style.left=vstupstrana+"px";
+//                               console.log("300");
+//                               break;
+//                               case 350:
+//                                  clearInterval(lavaa);
+//                                  clearInterval(horee);
+//                                  clearInterval(dolee);
+//                                  vstupstrana+=rychlost;
+//                                   pohyb.style.left=vstupstrana+"px";
+//                               console.log("350");
+//                               break;
+//                               case 400:
+//                                  clearInterval(lavaa);
+//                                  clearInterval(horee);
+//                                  clearInterval(dolee);
+//                                  vstupstrana+=rychlost;
+//                                   pohyb.style.left=vstupstrana+"px";
+//                               console.log("400");
+//                               break;
+//                               case 450:
+//                                  clearInterval(lavaa);
+//                                  clearInterval(horee);
+//                                  clearInterval(dolee);
+//                                  vstupstrana+=rychlost;
+//                                   pohyb.style.left=vstupstrana+"px";
+//                               console.log("450");
+//                               break;
+//                                default:
+//                               vstupstrana+=rychlost;
+//                                   pohyb.style.left=vstupstrana+"px"; 
+//                            }
+//                            // ss();
                            
-                           if(vstupstrana>=500-sirkasnake){
-                           vstupstrana=0-sirkasnake;
-                           }
-                           }
+//                            if(vstupstrana>=500-sirkasnake){
+//                            vstupstrana=0-sirkasnake;
+//                            }
+//                            }
                 
-          }  
+//           }  
           
       }
      
