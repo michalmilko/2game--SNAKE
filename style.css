@@ -4,12 +4,10 @@
    position: relative;
    background: #f5f589;
    border: 4px black solid;
-   overflow: hidden;
+   /* overflow: hidden; */
   
 }
 #snake{
-   width: 50px;
-   height: 50px;
    background: blue;
    position: absolute;
    top: 200px;

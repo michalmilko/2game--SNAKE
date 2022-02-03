@@ -9,7 +9,7 @@ var pohyb=document.getElementById("snake");
 var vloz=document.getElementById("celahra");
 
 pohyb.style.width=sirkasnake+"px";
-pohyb.style.height=sirkasnake+"px";
+pohyb.style.height=vyskasnake+"px";
 
 var fps=10;
 var rychlost=1;
@@ -53,7 +53,7 @@ function pohnut(event){
                                  break;
                                  case 50:
 
-                                     vstuphore-=rychlost;
+                                    vstuphore-=rychlost;
                                     pohyb.style.top=vstuphore+"px";
                                     console.log("vstupstrana-350");
                                     
@@ -67,14 +67,14 @@ function pohnut(event){
                                  break;
                                  case 150:
 
-                                     vstuphore-=rychlost;
+                                    vstuphore-=rychlost;
                                     pohyb.style.top=vstuphore+"px";
                                     console.log("vstupstrana-350");
                                     
                                  break;
                                  case 200:
 
-                                     vstuphore-=rychlost;
+                                    vstuphore-=rychlost;
                                     pohyb.style.top=vstuphore+"px";
                                     console.log("vstupstrana-350");
                                     
@@ -183,7 +183,7 @@ function pohnut(event){
                      break;
                      case 200:
                         
-                         vstupstrana-=rychlost;
+                        vstupstrana-=rychlost;
                         pohyb.style.left=vstupstrana+"px";
                         console.log("vstuphore-200");
 
@@ -366,12 +366,14 @@ function pohnut(event){
                      aktivitaleftright=false;
                      //NASTAVENIE INTERVALU A VOLANIE FUNKCIE
                      pravaa= setInterval(ide4,fps);
+
+
             //SPUSTENIE FUNKCIE-POHYB
             function ide4(){
 
                            //POHYB PO SACHOVNICI           
                             switch(vstuphore){
-                              case 0:
+                               case 0:
                                  
                                  vstupstrana+=rychlost;
                                  pohyb.style.left=vstupstrana+"px";
@@ -455,7 +457,7 @@ function pohnut(event){
                            }
                            // ss();
                            //POHYB MIMO SACHOVNICE
-                           if(vstupstrana>=500-sirkasnake){
+                           if(vstupstrana>=500){
                            vstupstrana=0-sirkasnake;
                            }
                            }
