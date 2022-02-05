@@ -22,6 +22,7 @@ var vytor;
 var vstuphore=200;
 var vstupstrana=200;
 var aktivitaupdown, aktivitaleftright;
+var mimohry=true;
 
 
 //KLAVESNICA A VOLANIE HLAVNEJ FUNKCIE
@@ -40,6 +41,8 @@ function pohnut(event){
                aktivitaupdown=true;
                //NASTAVENIE INTERVALU A VOLANIE FUNKCIE
                horee= setInterval(ide1,fps);
+
+
          //SPUSTENIE FUNKCIE-POHYB
          function ide1(){
                                  //POHYB PO SACHOVNICI
@@ -133,6 +136,11 @@ function pohnut(event){
                            if(vstuphore==-50){
                               vstuphore=500;
                            }
+                           if(vstuphore<0){
+                              mimohry=false;
+                           }else{
+                              mimohry=true;
+                           }
                        
                         }
                     ide1();
@@ -140,7 +148,7 @@ function pohnut(event){
                     poslednetlacitko=event.key;
 //STLACENIE LEFT TLACITKA                     
 }else if(event.key=="ArrowLeft" && poslednetlacitko !== "ArrowRight" && poslednetlacitko !== "ArrowLeft"){
-
+         if(mimohry==true){
             //STOP INTERVAL VOLANEJ FUNKCIE UP/DOWN
             clearInterval(dolee);
             clearInterval(horee);
@@ -242,9 +250,10 @@ function pohnut(event){
                   vstupstrana=500;
                   }
                    
-              
-                  }
+               }
+                 
               ide3();
+            }
               //OZNACENIE POSLEDNEHO TLACITKA
               poslednetlacitko=event.key;
 
@@ -260,6 +269,9 @@ function pohnut(event){
                   dolee= setInterval(ide2,fps);
             //SPUSTENIE FUNKCIE-POHYB
             function ide2(){
+               if(vstuphore==500){
+                           vstuphore=0-vyskasnake;
+                           }
 
                            //POHYB PO SACHOVNICI
                            switch(vstupstrana){
@@ -347,7 +359,7 @@ function pohnut(event){
                            }
                         //   ss();
                            //POHYB MIMO SACHOVNICE
-                           if(vstuphore>=500){
+                           if(vstuphore>500){
                            vstuphore=0-vyskasnake;
                            }
                            }
@@ -358,7 +370,7 @@ function pohnut(event){
                   
 //STLACENIE RIGHT TLACITKA
    }else  if(event.key=="ArrowRight" && poslednetlacitko !== "ArrowLeft" && poslednetlacitko !== "ArrowRight"){
-
+               if(mimohry==true){
                      //STOP INTERVAL VOLANEJ FUNKCIE UP/DOWN
                      clearInterval(dolee);
                      clearInterval(horee);
@@ -455,14 +467,15 @@ function pohnut(event){
                            }
                            // ss();
                            //POHYB MIMO SACHOVNICE
-                           if(vstupstrana>=500-sirkasnake){
+                           if(vstupstrana==500){
                            vstupstrana=0-sirkasnake;
                            }
                            }
+                       
                            ide4();
                            //OZNACENIE POSLEDNEHO TLACITKA
                            poslednetlacitko=event.key;
-                
+                        }
           }  
          }     
       
