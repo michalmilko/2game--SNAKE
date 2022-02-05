@@ -22,6 +22,7 @@ var vytor;
 var vstuphore=200;
 var vstupstrana=200;
 var aktivitaupdown, aktivitaleftright;
+var mimohry=true;
 
 
 //KLAVESNICA A VOLANIE HLAVNEJ FUNKCIE
@@ -31,7 +32,7 @@ addEventListener("keydown", pohnut);
 function pohnut(event){
  
 //STLACENIE UP TLACITKA
-      if(event.key=="ArrowUp" && poslednetlacitko !== "ArrowDown" && poslednetlacitko !== "ArrowUp"){
+      if(event.key=="ArrowUp" && poslednetlacitko !== "ArrowDown" && poslednetlacitko !== "ArrowUp" && mimohry==true){
 
               //STOP INTERVAL VOLANEJ FUNKCIE PRAVA/LAVA
                clearInterval(pravaa);
@@ -129,6 +130,14 @@ function pohnut(event){
                                  }
                           
                               // ss();
+
+                              if(vstuphore<0){
+                                 mimohry=false;
+                                 console.log("false");
+                              }else{
+                                 mimohry=true;
+                                 console.log("true");
+                              }
                            //POHYB MIMO SACHOVNICE
                            if(vstuphore==-50){
                               vstuphore=500;
@@ -142,7 +151,9 @@ function pohnut(event){
                   }
 
 //STLACENIE LEFT TLACITKA   
-      if(event.key=="ArrowLeft" && poslednetlacitko !== "ArrowRight" && poslednetlacitko !== "ArrowLeft"){
+
+      
+      if(event.key=="ArrowLeft" && poslednetlacitko !== "ArrowRight" && poslednetlacitko !== "ArrowLeft" && mimohry==true){
 
             //STOP INTERVAL VOLANEJ FUNKCIE UP/DOWN
             clearInterval(dolee);
@@ -239,7 +250,17 @@ function pohnut(event){
                      }
 
                   }
-                  // ss();
+
+                   // ss();
+                   //AK JE SNAKE MIMO HRY - ZAKAZ KEYDOWN
+                  if(vstupstrana<0){
+                     mimohry=false;
+                     console.log("false");
+                  }else{
+                     mimohry=true;
+                     console.log("true");
+                  }
+                 
                   //POHYB MIMO SACHOVNICE
                   if(vstupstrana==-50){
                   vstupstrana=500;
@@ -254,7 +275,7 @@ function pohnut(event){
 
          }
  //STLACENIE DOWN TLACITKA                         
-         if(event.key=="ArrowDown" && poslednetlacitko !== "ArrowUp" && poslednetlacitko !== "ArrowDown"){
+         if(event.key=="ArrowDown" && poslednetlacitko !== "ArrowUp" && poslednetlacitko !== "ArrowDown" && mimohry==true){
 
                   //STOP INTERVAL VOLANEJ FUNKCIE PRAVA/LAVA
                   clearInterval(pravaa);
@@ -351,6 +372,17 @@ function pohnut(event){
                                  }
                            }
                         //   ss();
+
+                           //AK JE SNAKE MIMO HRY - ZAKAZ KEYDOWN
+                           if(vstuphore>450){
+                           mimohry=false;
+                           console.log("false");
+                           }else{
+                           mimohry=true;
+                           console.log("true");
+                           }
+
+                         
                            //POHYB MIMO SACHOVNICE
                            if(vstuphore>=500){
                            vstuphore=0-vyskasnake;
@@ -365,7 +397,7 @@ function pohnut(event){
    
    
 //STLACENIE RIGHT TLACITKA
-   if(event.key=="ArrowRight" && poslednetlacitko !== "ArrowLeft" && poslednetlacitko !== "ArrowRight"){
+   if(event.key=="ArrowRight" && poslednetlacitko !== "ArrowLeft" && poslednetlacitko !== "ArrowRight" && mimohry==true){
 
                      //STOP INTERVAL VOLANEJ FUNKCIE UP/DOWN
                      clearInterval(dolee);
@@ -462,9 +494,19 @@ function pohnut(event){
                                  } 
                            }
                            // ss();
+
+                           //AK JE SNAKE MIMO HRY - ZAKAZ KEYDOWN
+                           if(vstupstrana>450){
+                           mimohry=false;
+                           console.log("false");
+                           }else{
+                           mimohry=true;
+                           console.log("true");
+                           }
+
                            //POHYB MIMO SACHOVNICE
-                           if(vstupstrana>=500-sirkasnake){
-                           vstupstrana=0-sirkasnake;
+                           if(vstupstrana==500){
+                           vstupstrana=-50;
                            }
                            }
                            ide4();
