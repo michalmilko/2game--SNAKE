@@ -1,5 +1,6 @@
+/////////////////////////////////////////////////////////
 ///////////////////////// SNAKE /////////////////////////
-
+/////////////////////////////////////////////////////////
 
 ///////////////////////DEKLARACIE///////////////////////
 var sirkasnake=50;
@@ -11,7 +12,7 @@ var vloz=document.getElementById("celahra");
 pohyb.style.width=sirkasnake+"px";
 pohyb.style.height=vyskasnake+"px";
 
-var fps=10;
+var fps=7;
 var rychlost=1;
 
 var dolee, horee, lavaa, pravaa;
@@ -49,80 +50,71 @@ function pohnut(event){
 
                                     vstuphore-=rychlost;
                                     pohyb.style.top=vstuphore+"px";
-                                    console.log("vstupstrana-350");
-                                    
+                                                                      
                                  break;
                                  case 50:
 
                                     vstuphore-=rychlost;
                                     pohyb.style.top=vstuphore+"px";
-                                    console.log("vstupstrana-350");
                                     
                                  break;
                                  case 100:
 
                                     vstuphore-=rychlost;
                                     pohyb.style.top=vstuphore+"px";
-                                    console.log("vstupstrana-350");
                                     
                                  break;
                                  case 150:
 
                                     vstuphore-=rychlost;
                                     pohyb.style.top=vstuphore+"px";
-                                    console.log("vstupstrana-350");
                                     
                                  break;
                                  case 200:
 
                                     vstuphore-=rychlost;
                                     pohyb.style.top=vstuphore+"px";
-                                    console.log("vstupstrana-350");
-                                    
+                                   
                                  break;
                                  case 250:
 
                                     vstuphore-=rychlost;
                                     pohyb.style.top=vstuphore+"px";
-                                    console.log("vstupstrana-350");
                                     
                                  break;
                                  case 300:
 
                                     vstuphore-=rychlost;
                                     pohyb.style.top=vstuphore+"px";
-                                    console.log("vstupstrana-350");
                                     
                                  break;
                                  case 350:
 
                                     vstuphore-=rychlost;
                                     pohyb.style.top=vstuphore+"px";
-                                    console.log("vstupstrana-350");
-
+                                    
                                  break;
                                  case 400:
 
                                     vstuphore-=rychlost;
                                     pohyb.style.top=vstuphore+"px";
-                                    console.log("vstupstrana-350");
-                                    
+                                   
                                  break;
                                  case 450:
 
                                     vstuphore-=rychlost;
                                     pohyb.style.top=vstuphore+"px";
-                                    console.log("vstupstrana-350");
                                     
                                  break;
                                    default:
                                       //DOTIAHNUTIE SACHOVNICE Z PREDOSLEJ STRANY
                                        if(aktivitaleftright==true){
-                                       console.log("L po UP");
+                                      
                                        vstupstrana-=rychlost;
                                        pohyb.style.left=vstupstrana+"px";
+
                                     }else{
-                                       console.log("L po DOWN");
+                                       
                                        vstupstrana+=rychlost;
                                        pohyb.style.left=vstupstrana+"px";
                                     }
@@ -132,19 +124,19 @@ function pohnut(event){
                               // ss();
                               //AK JE SNAKE MIMO HRY - ZAKAZ KEYDOWN
                               if(vstuphore<0){
+
                                  mimohry=false;
-                                 console.log("false");
+                                 
                               }else{
                                  mimohry=true;
-                                 console.log("true");
-                              }
-                           //POHYB MIMO SACHOVNICE
+                               }
+                           //VRATIT AK MIMO SACHOVNICE
                            if(vstuphore==-50){
                               vstuphore=500;
                            }
                        
                         }
-                    ide1();
+                   
                     //OZNACENIE POSLEDNEHO TLACITKA
                     poslednetlacitko=event.key;
                   
@@ -171,80 +163,71 @@ function pohnut(event){
                         
                         vstupstrana-=rychlost;
                         pohyb.style.left=vstupstrana+"px";
-                        console.log("vstuphore-0");
-
+                        
                      break;
                      case 50:
                         
                         vstupstrana-=rychlost;
                         pohyb.style.left=vstupstrana+"px";
-                        console.log("vstuphore-50");
-
+                        
                      break;
                      case 100:
                         
                         vstupstrana-=rychlost;
                         pohyb.style.left=vstupstrana+"px";
-                        console.log("vstuphore-100");
-
+                        
                      break;
                      case 150:
                         
                         vstupstrana-=rychlost;
                         pohyb.style.left=vstupstrana+"px";
-                        console.log("vstuphore-150");
-
+                        
                      break;
                      case 200:
                         
                         vstupstrana-=rychlost;
                         pohyb.style.left=vstupstrana+"px";
-                        console.log("vstuphore-200");
-
+                        
                      break;
                      case 250:
                         
                         vstupstrana-=rychlost;
                         pohyb.style.left=vstupstrana+"px";
-                        console.log("vstuphore-250");
-
+                        
                      break;
                      case 300:
                         
                         vstupstrana-=rychlost;
                         pohyb.style.left=vstupstrana+"px";
-                        console.log("vstuphore-300");
-
+                        
                      break;
                      case 350:
                         
                         vstupstrana-=rychlost;
                         pohyb.style.left=vstupstrana+"px";
-                        console.log("vstuphore-350");
-
+                       
                      break;
                      case 400:
                         
                         vstupstrana-=rychlost;
                         pohyb.style.left=vstupstrana+"px";
-                        console.log("vstuphore-400");
-
+                        
                      break;
                      case 450:
                         
                         vstupstrana-=rychlost;
                         pohyb.style.left=vstupstrana+"px";
-                        console.log("vstuphore-450");
-
+                        
                      break;
                      default:
                         //DOTIAHNUTIE SACHOVNICE Z PREDOSLEJ STRANY
                         if(aktivitaupdown==true){
-                        console.log("L po UP");
+                       
                         vstuphore-=rychlost;
                         pohyb.style.top=vstuphore+"px";
+
                      }else{
-                        console.log("L po DOWN");
+                        
                         vstuphore+=rychlost;
                         pohyb.style.top=vstuphore+"px";
                      }
@@ -255,20 +238,20 @@ function pohnut(event){
                    //AK JE SNAKE MIMO HRY - ZAKAZ KEYDOWN
                   if(vstupstrana<0){
                      mimohry=false;
-                     console.log("false");
+                     
                   }else{
                      mimohry=true;
-                     console.log("true");
+                     
                   }
                  
-                  //POHYB MIMO SACHOVNICE
+                  //VRATIT AK MIMO SACHOVNICE
                   if(vstupstrana==-50){
                   vstupstrana=500;
                   }
                    
               
                   }
-              ide3();
+      
               //OZNACENIE POSLEDNEHO TLACITKA
               poslednetlacitko=event.key;
 
@@ -293,80 +276,71 @@ function pohnut(event){
                               
                                  vstuphore+=rychlost;
                                  pohyb.style.top=vstuphore+"px";
-                                 console.log("0");
                                  
                               break;
                               case 50:
                               
                                  vstuphore+=rychlost;
                                  pohyb.style.top=vstuphore+"px";
-                                 console.log("50");
-
+                                 
                               break;
                               case 100:
                               
                                  vstuphore+=rychlost;
                                  pohyb.style.top=vstuphore+"px";
-                                 console.log("100");
                                  
                               break;
                               case 150:
                               
                                  vstuphore+=rychlost;
                                  pohyb.style.top=vstuphore+"px";
-                                 console.log("150");
                                  
                               break;
                               case 200:
                               
                                  vstuphore+=rychlost;
                                  pohyb.style.top=vstuphore+"px";
-                                 console.log("200");
                                  
                               break;
                               case 250:
                               
                                  vstuphore+=rychlost;
                                  pohyb.style.top=vstuphore+"px";
-                                 console.log("250");
                                  
                               break;
                               case 300:
                               
                                  vstuphore+=rychlost;
                                  pohyb.style.top=vstuphore+"px";
-                                 console.log("300");
                                  
                               break;
                               case 350:
                               
                                  vstuphore+=rychlost;
                                  pohyb.style.top=vstuphore+"px";
-                                 console.log("350");
                                  
                               break;
                               case 400:
                               
                                  vstuphore+=rychlost;
                                  pohyb.style.top=vstuphore+"px";
-                                 console.log("400");
                                  
                               break;
                               case 450:
                               
                                  vstuphore+=rychlost;
                                  pohyb.style.top=vstuphore+"px";
-                                 console.log("450");
                                  
                               break;
                                  default:
                                     //DOTIAHNUTIE SACHOVNICE Z PREDOSLEJ STRANY
                                     if(aktivitaleftright==true){
-                                    console.log("L po UP");
+                                    
                                     vstupstrana-=rychlost;
                                     pohyb.style.left=vstupstrana+"px";
+
                                  }else{
-                                    console.log("L po DOWN");
+                                    
                                     vstupstrana+=rychlost;
                                     pohyb.style.left=vstupstrana+"px";
                                  }
@@ -376,19 +350,19 @@ function pohnut(event){
                            //AK JE SNAKE MIMO HRY - ZAKAZ KEYDOWN
                            if(vstuphore>450){
                            mimohry=false;
-                           console.log("false");
+                           
                            }else{
                            mimohry=true;
-                           console.log("true");
+                           
                            }
 
                          
-                           //POHYB MIMO SACHOVNICE
+                           //VRATIT AK MIMO SACHOVNICE
                            if(vstuphore>=500){
                            vstuphore=0-vyskasnake;
                            }
                            }
-                           ide2();
+                     
                            //OZNACENIE POSLEDNEHO TLACITKA
                            poslednetlacitko=event.key;
                    
@@ -424,73 +398,65 @@ function pohnut(event){
                                  
                                  vstupstrana+=rychlost;
                                  pohyb.style.left=vstupstrana+"px";
-                                 console.log("50");
-
+                                 
                               break;
                               case 100:
                                  
                                  vstupstrana+=rychlost;
                                  pohyb.style.left=vstupstrana+"px";
-                                 console.log("100");
-
+                                 
                               break;
                               case 150:
                                  
                                  vstupstrana+=rychlost;
                                  pohyb.style.left=vstupstrana+"px";
-                                 console.log("150");
-
+                                 
                               break;
                               case 200:
                                  
                                  vstupstrana+=rychlost;
                                  pohyb.style.left=vstupstrana+"px";
-                                 console.log("200");
-
+                                 
                               break;
                               case 250:
                                  
                                  vstupstrana+=rychlost;
                                  pohyb.style.left=vstupstrana+"px";
-                                 console.log("250");
-
+                                 
                               break;
                               case 300:
                                  
                                  vstupstrana+=rychlost;
                                  pohyb.style.left=vstupstrana+"px";
-                                 console.log("300");
-
+                                 
                               break;
                               case 350:
                                  
                                  vstupstrana+=rychlost;
                                  pohyb.style.left=vstupstrana+"px";
-                                 console.log("350");
-
+                                 
                               break;
                               case 400:
                                  
                                  vstupstrana+=rychlost;
                                  pohyb.style.left=vstupstrana+"px";
-                                 console.log("400");
-
+                                 
                               break;
                               case 450:
                                  
                                  vstupstrana+=rychlost;
                                  pohyb.style.left=vstupstrana+"px";
-                                 console.log("450");
-
+                                 
                               break;
                                default:
                                   //DOTIAHNUTIE SACHOVNICE Z PREDOSLEJ STRANY
                                  if(aktivitaupdown==true){
-                                    console.log("P po UP");
+                                    
                                     vstuphore-=rychlost;
                                     pohyb.style.top=vstuphore+"px";
+
                                  }else{
-                                    console.log("P po DOWN");
+                                    
                                     vstuphore+=rychlost;
                                     pohyb.style.top=vstuphore+"px";
                                  } 
@@ -500,10 +466,10 @@ function pohnut(event){
                            //AK JE SNAKE MIMO HRY - ZAKAZ KEYDOWN
                            if(vstupstrana>450){
                            mimohry=false;
-                           console.log("false");
+                           
                            }else{
                            mimohry=true;
-                           console.log("true");
+                           
                            }
 
                            //POHYB MIMO SACHOVNICE
@@ -511,17 +477,13 @@ function pohnut(event){
                            vstupstrana=0-sirkasnake;
                            }
                            }
-                           ide4();
+                         
                            //OZNACENIE POSLEDNEHO TLACITKA
                            poslednetlacitko=event.key;
                 
           }  
          }     
       
-     
-   
-
-  
  
    // console.log(pohnut.event) ; 
    
