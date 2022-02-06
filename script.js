@@ -391,8 +391,7 @@ function pohnut(event){
                                  
                                  vstupstrana+=rychlost;
                                  pohyb.style.left=vstupstrana+"px";
-                                 console.log("0");
-
+                                 
                               break;
                               case 50:
                                  
