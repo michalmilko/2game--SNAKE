@@ -24,6 +24,7 @@ var vstuphore=200;
 var vstupstrana=200;
 var aktivitaupdown, aktivitaleftright;
 var mimohry=true;
+var navratsnake=true;
 
 
 //KLAVESNICA A VOLANIE HLAVNEJ FUNKCIE
@@ -33,7 +34,7 @@ addEventListener("keydown", pohnut);
 function pohnut(event){
  
 //STLACENIE UP TLACITKA
-      if(event.key=="ArrowUp" && poslednetlacitko !== "ArrowDown" && poslednetlacitko !== "ArrowUp" && mimohry==true){
+      if(event.key=="ArrowUp" && poslednetlacitko !== "ArrowDown" && poslednetlacitko !== "ArrowUp" && mimohry==true && navratsnake==true){
 
               //STOP INTERVAL VOLANEJ FUNKCIE PRAVA/LAVA
                clearInterval(pravaa);
@@ -51,72 +52,72 @@ function pohnut(event){
                                  case 0:
 
                                     vstuphore-=rychlost;
-                                    pohyb.style.top=vstuphore+"px";
-                                                                      
+                                    pohyb.style.top=vstuphore+"px";   
+                                    navratsnake=true;
                                  break;
                                  case 50:
 
                                     vstuphore-=rychlost;
                                     pohyb.style.top=vstuphore+"px";
-                                    
+                                    navratsnake=true;
                                  break;
                                  case 100:
 
                                     vstuphore-=rychlost;
                                     pohyb.style.top=vstuphore+"px";
-                                    
+                                    navratsnake=true;
                                  break;
                                  case 150:
 
                                     vstuphore-=rychlost;
                                     pohyb.style.top=vstuphore+"px";
-                                    
+                                    navratsnake=true;
                                  break;
                                  case 200:
 
                                     vstuphore-=rychlost;
                                     pohyb.style.top=vstuphore+"px";
-                                   
+                                    navratsnake=true;
                                  break;
                                  case 250:
 
                                     vstuphore-=rychlost;
                                     pohyb.style.top=vstuphore+"px";
-                                    
+                                    navratsnake=true;
                                  break;
                                  case 300:
 
                                     vstuphore-=rychlost;
                                     pohyb.style.top=vstuphore+"px";
-                                    
+                                    navratsnake=true;
                                  break;
                                  case 350:
 
                                     vstuphore-=rychlost;
                                     pohyb.style.top=vstuphore+"px";
-                                    
+                                    navratsnake=true;
                                  break;
                                  case 400:
 
                                     vstuphore-=rychlost;
                                     pohyb.style.top=vstuphore+"px";
-                                   
+                                    navratsnake=true;
                                  break;
                                  case 450:
 
                                     vstuphore-=rychlost;
                                     pohyb.style.top=vstuphore+"px";
-                                    
+                                    navratsnake=true;
                                  break;
                                    default:
                                       //DOTIAHNUTIE SACHOVNICE Z PREDOSLEJ STRANY
                                        if(aktivitaleftright==true){
-                                      
+                                          navratsnake=false;
                                        vstupstrana-=rychlost;
                                        pohyb.style.left=vstupstrana+"px";
                                        
                                     }else{
-                                       
+                                       navratsnake=false;
                                        vstupstrana+=rychlost;
                                        pohyb.style.left=vstupstrana+"px";
                                       
@@ -147,7 +148,7 @@ function pohnut(event){
 //STLACENIE LEFT TLACITKA   
 
       
-      if(event.key=="ArrowLeft" && poslednetlacitko !== "ArrowRight" && poslednetlacitko !== "ArrowLeft" && mimohry==true){
+      if(event.key=="ArrowLeft" && poslednetlacitko !== "ArrowRight" && poslednetlacitko !== "ArrowLeft" && mimohry==true && navratsnake==true){
 
             //STOP INTERVAL VOLANEJ FUNKCIE UP/DOWN
             clearInterval(dolee);
@@ -167,71 +168,71 @@ function pohnut(event){
                         
                         vstupstrana-=rychlost;
                         pohyb.style.left=vstupstrana+"px";
-                        
+                        navratsnake=true;
                      break;
                      case 50:
                         
                         vstupstrana-=rychlost;
                         pohyb.style.left=vstupstrana+"px";
-                        
+                        navratsnake=true;
                      break;
                      case 100:
                         
                         vstupstrana-=rychlost;
                         pohyb.style.left=vstupstrana+"px";
-                        
+                        navratsnake=true;
                      break;
                      case 150:
                         
                         vstupstrana-=rychlost;
                         pohyb.style.left=vstupstrana+"px";
-                        
+                        navratsnake=true;
                      break;
                      case 200:
                         
                         vstupstrana-=rychlost;
                         pohyb.style.left=vstupstrana+"px";
-                        
+                        navratsnake=true;
                      break;
                      case 250:
                         
                         vstupstrana-=rychlost;
                         pohyb.style.left=vstupstrana+"px";
-                        
+                        navratsnake=true;
                      break;
                      case 300:
                         
                         vstupstrana-=rychlost;
                         pohyb.style.left=vstupstrana+"px";
-                        
+                        navratsnake=true;
                      break;
                      case 350:
                         
                         vstupstrana-=rychlost;
                         pohyb.style.left=vstupstrana+"px";
-                       
+                        navratsnake=true;
                      break;
                      case 400:
                         
                         vstupstrana-=rychlost;
                         pohyb.style.left=vstupstrana+"px";
-                        
+                        navratsnake=true;
                      break;
                      case 450:
                         
                         vstupstrana-=rychlost;
                         pohyb.style.left=vstupstrana+"px";
-                        
+                        navratsnake=true;
                      break;
                      default:
                         //DOTIAHNUTIE SACHOVNICE Z PREDOSLEJ STRANY
                         if(aktivitaupdown==true){
-                       
+                           navratsnake=false;
                         vstuphore-=rychlost;
                         pohyb.style.top=vstuphore+"px";
 
                      }else{
-                        
+                        navratsnake=false;
                         vstuphore+=rychlost;
                         pohyb.style.top=vstuphore+"px";
                      }
@@ -261,7 +262,7 @@ function pohnut(event){
 
          }
  //STLACENIE DOWN TLACITKA                         
-         if(event.key=="ArrowDown" && poslednetlacitko !== "ArrowUp" && poslednetlacitko !== "ArrowDown" && mimohry==true){
+         if(event.key=="ArrowDown" && poslednetlacitko !== "ArrowUp" && poslednetlacitko !== "ArrowDown" && mimohry==true && navratsnake==true){
 
                   //STOP INTERVAL VOLANEJ FUNKCIE PRAVA/LAVA
                   clearInterval(pravaa);
@@ -281,71 +282,71 @@ function pohnut(event){
                               
                                  vstuphore+=rychlost;
                                  pohyb.style.top=vstuphore+"px";
-                                 
+                                 navratsnake=true;
                               break;
                               case 50:
                               
                                  vstuphore+=rychlost;
                                  pohyb.style.top=vstuphore+"px";
-                                 
+                                 navratsnake=true;
                               break;
                               case 100:
                               
                                  vstuphore+=rychlost;
                                  pohyb.style.top=vstuphore+"px";
-                                 
+                                 navratsnake=true;
                               break;
                               case 150:
                               
                                  vstuphore+=rychlost;
                                  pohyb.style.top=vstuphore+"px";
-                                 
+                                 navratsnake=true;
                               break;
                               case 200:
                               
                                  vstuphore+=rychlost;
                                  pohyb.style.top=vstuphore+"px";
-                                 
+                                 navratsnake=true;
                               break;
                               case 250:
                               
                                  vstuphore+=rychlost;
                                  pohyb.style.top=vstuphore+"px";
-                                 
+                                 navratsnake=true;
                               break;
                               case 300:
                               
                                  vstuphore+=rychlost;
                                  pohyb.style.top=vstuphore+"px";
-                                 
+                                 navratsnake=true;
                               break;
                               case 350:
                               
                                  vstuphore+=rychlost;
                                  pohyb.style.top=vstuphore+"px";
-                                 
+                                 navratsnake=true;
                               break;
                               case 400:
                               
                                  vstuphore+=rychlost;
                                  pohyb.style.top=vstuphore+"px";
-                                 
+                                 navratsnake=true;
                               break;
                               case 450:
                               
                                  vstuphore+=rychlost;
                                  pohyb.style.top=vstuphore+"px";
-                                 
+                                 navratsnake=true;
                               break;
                                  default:
                                     //DOTIAHNUTIE SACHOVNICE Z PREDOSLEJ STRANY
                                     if(aktivitaleftright==true){
-                                    
+                                       navratsnake=false;
                                     vstupstrana-=rychlost;
                                     pohyb.style.left=vstupstrana+"px";
 
                                  }else{
-                                    
+                                    navratsnake=false;
                                     vstupstrana+=rychlost;
                                     pohyb.style.left=vstupstrana+"px";
                                  }
@@ -375,7 +376,7 @@ function pohnut(event){
    
    
 //STLACENIE RIGHT TLACITKA
-   if(event.key=="ArrowRight" && poslednetlacitko !== "ArrowLeft" && poslednetlacitko !== "ArrowRight" && mimohry==true){
+   if(event.key=="ArrowRight" && poslednetlacitko !== "ArrowLeft" && poslednetlacitko !== "ArrowRight" && mimohry==true && navratsnake==true){
 
                      //STOP INTERVAL VOLANEJ FUNKCIE UP/DOWN
                      clearInterval(dolee);
@@ -396,71 +397,71 @@ function pohnut(event){
                                  
                                  vstupstrana+=rychlost;
                                  pohyb.style.left=vstupstrana+"px";
-                                 
+                                 navratsnake=true;
                               break;
                               case 50:
                                  
                                  vstupstrana+=rychlost;
                                  pohyb.style.left=vstupstrana+"px";
-                                 
+                                 navratsnake=true;
                               break;
                               case 100:
                                  
                                  vstupstrana+=rychlost;
                                  pohyb.style.left=vstupstrana+"px";
-                                 
+                                 navratsnake=true;
                               break;
                               case 150:
                                  
                                  vstupstrana+=rychlost;
                                  pohyb.style.left=vstupstrana+"px";
-                                 
+                                 navratsnake=true;
                               break;
                               case 200:
                                  
                                  vstupstrana+=rychlost;
                                  pohyb.style.left=vstupstrana+"px";
-                                 
+                                 navratsnake=true;
                               break;
                               case 250:
                                  
                                  vstupstrana+=rychlost;
                                  pohyb.style.left=vstupstrana+"px";
-                                 
+                                 navratsnake=true;
                               break;
                               case 300:
                                  
                                  vstupstrana+=rychlost;
                                  pohyb.style.left=vstupstrana+"px";
-                                 
+                                 navratsnake=true;
                               break;
                               case 350:
                                  
                                  vstupstrana+=rychlost;
                                  pohyb.style.left=vstupstrana+"px";
-                                 
+                                 navratsnake=true;
                               break;
                               case 400:
                                  
                                  vstupstrana+=rychlost;
                                  pohyb.style.left=vstupstrana+"px";
-                                 
+                                 navratsnake=true;
                               break;
                               case 450:
                                  
                                  vstupstrana+=rychlost;
                                  pohyb.style.left=vstupstrana+"px";
-                                 
+                                 navratsnake=true;
                               break;
                                default:
                                   //DOTIAHNUTIE SACHOVNICE Z PREDOSLEJ STRANY
                                  if(aktivitaupdown==true){
-                                    
+                                    navratsnake=false;
                                     vstuphore-=rychlost;
                                     pohyb.style.top=vstuphore+"px";
 
                                  }else{
-                                    
+                                    navratsnake=false;
                                     vstuphore+=rychlost;
                                     pohyb.style.top=vstuphore+"px";
                                  } 
