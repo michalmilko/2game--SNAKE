@@ -42,6 +42,8 @@ function pohnut(event){
                aktivitaupdown=true;
                //NASTAVENIE INTERVALU A VOLANIE FUNKCIE
                horee= setInterval(ide1,fps);
+               //OZNACENIE POSLEDNEHO TLACITKA
+               poslednetlacitko=event.key;
          //SPUSTENIE FUNKCIE-POHYB
          function ide1(){
                                  //POHYB PO SACHOVNICI
@@ -112,11 +114,12 @@ function pohnut(event){
                                       
                                        vstupstrana-=rychlost;
                                        pohyb.style.left=vstupstrana+"px";
-
+                                       
                                     }else{
                                        
                                        vstupstrana+=rychlost;
                                        pohyb.style.left=vstupstrana+"px";
+                                      
                                     }
 
                                  }
@@ -137,8 +140,7 @@ function pohnut(event){
                        
                         }
                    
-                    //OZNACENIE POSLEDNEHO TLACITKA
-                    poslednetlacitko=event.key;
+                    
                   
                   }
 
@@ -154,6 +156,8 @@ function pohnut(event){
             aktivitaleftright=true;
             //NASTAVENIE INTERVALU A VOLANIE FUNKCIE
             lavaa= setInterval(ide3,fps);
+            //OZNACENIE POSLEDNEHO TLACITKA
+            poslednetlacitko=event.key;
    //SPUSTENIE FUNKCIE-POHYB
    function ide3(){
 
@@ -252,8 +256,7 @@ function pohnut(event){
               
                   }
       
-              //OZNACENIE POSLEDNEHO TLACITKA
-              poslednetlacitko=event.key;
+              
 
 
          }
@@ -267,6 +270,8 @@ function pohnut(event){
                   aktivitaupdown=false;
                   //NASTAVENIE INTERVALU A VOLANIE FUNKCIE
                   dolee= setInterval(ide2,fps);
+                  //OZNACENIE POSLEDNEHO TLACITKA
+              poslednetlacitko=event.key;
             //SPUSTENIE FUNKCIE-POHYB
             function ide2(){
 
@@ -363,8 +368,7 @@ function pohnut(event){
                            }
                            }
                      
-                           //OZNACENIE POSLEDNEHO TLACITKA
-                           poslednetlacitko=event.key;
+                       
                    
                   
    } 
@@ -380,7 +384,8 @@ function pohnut(event){
                      aktivitaleftright=false;
                      //NASTAVENIE INTERVALU A VOLANIE FUNKCIE
                      pravaa= setInterval(ide4,fps);
-
+                     //OZNACENIE POSLEDNEHO TLACITKA
+                     poslednetlacitko=event.key;
 
             //SPUSTENIE FUNKCIE-POHYB
             function ide4(){
@@ -477,13 +482,12 @@ function pohnut(event){
                            }
                            }
                          
-                           //OZNACENIE POSLEDNEHO TLACITKA
-                           poslednetlacitko=event.key;
-                
+                           
           }  
          }     
       
- 
+         
+
    // console.log(pohnut.event) ; 
    
 
