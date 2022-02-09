@@ -506,34 +506,30 @@ function pohnut(event){
 // }
 
   // vytvorenie jedla
-// function trafa(vytor){
+trafa();
+function trafa(){
    
   
-//    jedlokocka={
-//       sirka: 50,
-//       vyska: 50,
-//        x: Math.ceil(Math.random()*450),
-//        y: Math.ceil(Math.random()*450)
-//        };
-  
+   jedlokocka={
+      sirka: 50,
+      vyska: 50,
+       x: Math.floor(Math.random() * 10),
+       y: Math.floor(Math.random() * 10)
+       };
+  console.log(jedlokocka.x + " " +jedlokocka.y);
        
      
-// vytor=document.createElement("div");
-// vytor.style.background="blue";
-// vytor.style.height=jedlokocka.sirka+"px";
-// vytor.style.width=jedlokocka.vyska+"px";
+vytor=document.createElement("div");
+vytor.style.background="blue";
+vytor.style.height=jedlokocka.sirka+"px";
+vytor.style.width=jedlokocka.vyska+"px";
 
-// vloz.appendChild(vytor);
-// vytor.style.position="absolute";
-// vytor.style.top=jedlokocka.x+"px";
-// vytor.style.left=jedlokocka.y+"px";
+vloz.appendChild(vytor);
+vytor.style.position="absolute";
+vytor.style.top=(jedlokocka.x * 50)+"px";
+vytor.style.left=(jedlokocka.y * 50)+"px";
 
-// }
+}
 
 
 
-// var test=function auto(){
-//    var x=10;
-//    return x;
-// };
-// console.log(test);
