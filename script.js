@@ -12,7 +12,7 @@ var vloz=document.getElementById("celahra");
 pohyb.style.width=sirkasnake+"px";
 pohyb.style.height=vyskasnake+"px";
 
-var fps=7;
+var fps=3;
 var rychlost=1;
 
 var dolee, horee, lavaa, pravaa;
@@ -23,8 +23,8 @@ var vytor;
 var vstuphore=200;
 var vstupstrana=200;
 var aktivitaupdown, aktivitaleftright;
-var mimohry=true;
 var navratsnake=true;
+var mimohry=true;
 
 
 //KLAVESNICA A VOLANIE HLAVNEJ FUNKCIE
@@ -489,7 +489,7 @@ function pohnut(event){
       
          
 
-   // console.log(pohnut.event) ; 
+         
    
 
 //  trafa();    
