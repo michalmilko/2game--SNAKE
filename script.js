@@ -12,9 +12,14 @@ var vloz=document.getElementById("celahra");
 pohyb.style.width=sirkasnake+"px";
 pohyb.style.height=vyskasnake+"px";
 
+//VYTVORENIE JEDLA
 var vytor=document.createElement("div");
 vloz.appendChild(vytor);
+//VYTVORENIE CHVOSTU SNAKE
+var chvost=document.createElement("div");
+vloz.appendChild(chvost);
 
+//RYCHLOST SNKAE
 var fps=3;
 var rychlost=1;
 
@@ -22,7 +27,7 @@ var dolee, horee, lavaa, pravaa;
 var poslednetlacitko;
 var x,y;
 var jedlokocka;
-// var vytor;
+var chvostt;
 var vstuphore=200;
 var vstupstrana=200;
 var aktivitaupdown, aktivitaleftright;
@@ -30,6 +35,7 @@ var navratsnake=true;
 var mimohry=true;
 var novakockatop;
 var novakockaleft;
+var pole=[];
 
 
  
@@ -53,7 +59,7 @@ function pohnut(event){
                poslednetlacitko=event.key;
          //SPUSTENIE FUNKCIE-POHYB
          function ide1(){
-            ss();
+            trafil();
                                  //POHYB PO SACHOVNICI
                                  switch(vstupstrana){
                                  case 0:
@@ -168,7 +174,8 @@ function pohnut(event){
             poslednetlacitko=event.key;
    //SPUSTENIE FUNKCIE-POHYB
    function ide3(){
-      ss();
+      trafil();
+      
                  //POHYB PO SACHOVNICI
                   switch(vstuphore){
                      case 0:
@@ -282,7 +289,7 @@ function pohnut(event){
               poslednetlacitko=event.key;
             //SPUSTENIE FUNKCIE-POHYB
             function ide2(){
-               ss();
+               trafil();
                            //POHYB PO SACHOVNICI
                            switch(vstupstrana){
                               case 0:
@@ -397,7 +404,7 @@ function pohnut(event){
 
             //SPUSTENIE FUNKCIE-POHYB
             function ide4(){
-               ss();
+               trafil();
                            //POHYB PO SACHOVNICI           
                             switch(vstuphore){
                                case 0:
@@ -489,33 +496,25 @@ function pohnut(event){
                            vstupstrana=0-sirkasnake;
                            }
                            }
-                         
-                           
+                       
           }  
          }     
       
-         
-
-
-
-         
- function ss(){
+ //AK SNAKE ZIJE JEDLO        
+ function trafil(){
    
-  
-
   if(novakockatop==vstuphore+"px" && novakockaleft==vstupstrana+"px"){
    
-   trafa();
-   console.log("TRAFILL!!!!!!!!!!!!!!!!!!!!!") 
-
-}
-}
-
-  // vytvorenie jedla
-
-function trafa(){
+   vytvor();
    
-  
+   chvostik();
+
+}
+}
+
+// vytvorenie jedla
+function vytvor(){
+    
    jedlokocka={
       sirka: 50,
       vyska: 50,
@@ -523,25 +522,44 @@ function trafa(){
        y: Math.floor(Math.random() * 10) * 50
        };
 
-      
-     
-
-
 vytor.style.position="absolute";
 vytor.style.background="red";
 vytor.style.height=jedlokocka.sirka+"px";
 vytor.style.width=jedlokocka.vyska+"px";
 vytor.style.borderRadius=30+"px";
 
- novakockatop=vytor.style.top=(jedlokocka.x)+"px";
- novakockaleft=vytor.style.left=(jedlokocka.y)+"px";
- 
-
+novakockatop=vytor.style.top=(jedlokocka.x)+"px";
+novakockaleft=vytor.style.left=(jedlokocka.y)+"px";
 }
 
 
 
 // vytvaranie noveho elementu
+function chvostik(){
+   
+pole[1]=vstupstrana;
+pole[0]=vstuphore;
+
+
+   console.log(pole[0] + " " + pole[1]);
+
+
+   chvostt={
+      sirka: 50,
+      vyska: 50,
+       x: pole[0],
+       y: pole[1]
+       };
+
+chvost.style.position="absolute";
+chvost.style.background="blue";
+chvost.style.height=chvostt.sirka+"px";
+chvost.style.width=chvostt.vyska+"px";
+
+
+chvost.style.top=(chvostt.x)+"px";
+chvost.style.left=(chvostt.y)+"px";
+}
 
 // function trafa(){
    
