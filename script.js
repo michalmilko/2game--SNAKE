@@ -12,6 +12,9 @@ var vloz=document.getElementById("celahra");
 pohyb.style.width=sirkasnake+"px";
 pohyb.style.height=vyskasnake+"px";
 
+var vytor=document.createElement("div");
+vloz.appendChild(vytor);
+
 var fps=3;
 var rychlost=1;
 
@@ -19,14 +22,17 @@ var dolee, horee, lavaa, pravaa;
 var poslednetlacitko;
 var x,y;
 var jedlokocka;
-var vytor;
+// var vytor;
 var vstuphore=200;
 var vstupstrana=200;
 var aktivitaupdown, aktivitaleftright;
 var navratsnake=true;
 var mimohry=true;
+var novakockatop;
+var novakockaleft;
 
 
+ 
 //KLAVESNICA A VOLANIE HLAVNEJ FUNKCIE
 addEventListener("keydown", pohnut);
  
@@ -47,6 +53,7 @@ function pohnut(event){
                poslednetlacitko=event.key;
          //SPUSTENIE FUNKCIE-POHYB
          function ide1(){
+            ss();
                                  //POHYB PO SACHOVNICI
                                  switch(vstupstrana){
                                  case 0:
@@ -125,7 +132,7 @@ function pohnut(event){
 
                                  }
                           
-                              // ss();
+                             
                               //AK JE SNAKE MIMO HRY - ZAKAZ KEYDOWN
                               if(vstuphore<0){
 
@@ -161,7 +168,7 @@ function pohnut(event){
             poslednetlacitko=event.key;
    //SPUSTENIE FUNKCIE-POHYB
    function ide3(){
-
+      ss();
                  //POHYB PO SACHOVNICI
                   switch(vstuphore){
                      case 0:
@@ -239,7 +246,7 @@ function pohnut(event){
 
                   }
 
-                   // ss();
+                    
                    //AK JE SNAKE MIMO HRY - ZAKAZ KEYDOWN
                   if(vstupstrana<0){
                      mimohry=false;
@@ -275,7 +282,7 @@ function pohnut(event){
               poslednetlacitko=event.key;
             //SPUSTENIE FUNKCIE-POHYB
             function ide2(){
-
+               ss();
                            //POHYB PO SACHOVNICI
                            switch(vstupstrana){
                               case 0:
@@ -351,7 +358,7 @@ function pohnut(event){
                                     pohyb.style.left=vstupstrana+"px";
                                  }
                            }
-                        //   ss();
+                         
 
                            //AK JE SNAKE MIMO HRY - ZAKAZ KEYDOWN
                            if(vstuphore>450){
@@ -390,7 +397,7 @@ function pohnut(event){
 
             //SPUSTENIE FUNKCIE-POHYB
             function ide4(){
-
+               ss();
                            //POHYB PO SACHOVNICI           
                             switch(vstuphore){
                                case 0:
@@ -466,7 +473,7 @@ function pohnut(event){
                                     pohyb.style.top=vstuphore+"px";
                                  } 
                            }
-                           // ss();
+                            
 
                            //AK JE SNAKE MIMO HRY - ZAKAZ KEYDOWN
                            if(vstupstrana>450){
@@ -489,47 +496,78 @@ function pohnut(event){
       
          
 
+
+
          
+ function ss(){
    
+  
 
-//  trafa();    
-//  function ss(){
+  if(novakockatop==vstuphore+"px" && novakockaleft==vstupstrana+"px"){
+   
+   trafa();
+   console.log("TRAFILL!!!!!!!!!!!!!!!!!!!!!") 
 
-//    var sirkakocky2 = jedlokocka.y+50;
-//    var sirkakocky1 = jedlokocka.y-25;
-//    var vyskakocky2 = jedlokocka.x+50;
-//    var vyskakocky1 = jedlokocka.x-25;
-
-//   if(vstupstrana>sirkakocky1 && vstupstrana<sirkakocky2 && vstuphore>vyskakocky1 && vstuphore<vyskakocky2){
-//    trafa(); 
-//   }
-// }
+}
+}
 
   // vytvorenie jedla
-trafa();
+
 function trafa(){
    
   
    jedlokocka={
       sirka: 50,
       vyska: 50,
-       x: Math.floor(Math.random() * 10),
-       y: Math.floor(Math.random() * 10)
+       x: Math.floor(Math.random() * 10) * 50,
+       y: Math.floor(Math.random() * 10) * 50
        };
-  console.log(jedlokocka.x + " " +jedlokocka.y);
-       
+
+      
      
-vytor=document.createElement("div");
-vytor.style.background="blue";
+
+
+vytor.style.position="absolute";
+vytor.style.background="red";
 vytor.style.height=jedlokocka.sirka+"px";
 vytor.style.width=jedlokocka.vyska+"px";
+vytor.style.borderRadius=30+"px";
 
-vloz.appendChild(vytor);
-vytor.style.position="absolute";
-vytor.style.top=(jedlokocka.x * 50)+"px";
-vytor.style.left=(jedlokocka.y * 50)+"px";
+ novakockatop=vytor.style.top=(jedlokocka.x)+"px";
+ novakockaleft=vytor.style.left=(jedlokocka.y)+"px";
+ 
 
 }
+
+
+
+// vytvaranie noveho elementu
+
+// function trafa(){
+   
+  
+//    jedlokocka={
+//       sirka: 50,
+//       vyska: 50,
+//        x: Math.floor(Math.random() * 10),
+//        y: Math.floor(Math.random() * 10)
+//        };
+
+       
+     
+// vytor=document.createElement("div");
+// vytor.style.background="blue";
+// vytor.style.height=jedlokocka.sirka+"px";
+// vytor.style.width=jedlokocka.vyska+"px";
+
+// vloz.appendChild(vytor);
+// vytor.style.position="absolute";
+//  novakockatop= vytor.style.top=(jedlokocka.x * 50)+"px";
+//  novakockaleft=vytor.style.left=(jedlokocka.y * 50)+"px";
+
+// }
+
+
 
 
 
