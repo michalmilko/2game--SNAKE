@@ -20,25 +20,25 @@ var chvost=document.createElement("div");
 vloz.appendChild(chvost);
 
 //RYCHLOST SNKAE
-var fps=3;
+var fps=60;
 var rychlost=1;
 
 var dolee, horee, lavaa, pravaa;
 var poslednetlacitko;
-var x,y;
+var x,y,x1,y1;
 var jedlokocka;
-var chvostt;
-var vstuphore=200;
-var vstupstrana=200;
+var jedlokocka1;
+var chvost;
 var aktivitaupdown, aktivitaleftright;
 var navratsnake=true;
 var mimohry=true;
 var novakockatop;
 var novakockaleft;
-var pole=[];
+var novakockatop1;
+var novakockaleft1;
+var pozicia=[200,200];
 
 
- 
 //KLAVESNICA A VOLANIE HLAVNEJ FUNKCIE
 addEventListener("keydown", pohnut);
  
@@ -59,80 +59,55 @@ function pohnut(event){
                poslednetlacitko=event.key;
          //SPUSTENIE FUNKCIE-POHYB
          function ide1(){
-            trafil();
+               trafil();
+         
+            
                                  //POHYB PO SACHOVNICI
-                                 switch(vstupstrana){
+                                 switch(pozicia[1]){
                                  case 0:
-
-                                    vstuphore-=rychlost;
-                                    pohyb.style.top=vstuphore+"px";   
-                                    navratsnake=true;
+                                    pohybup();
                                  break;
                                  case 50:
-
-                                    vstuphore-=rychlost;
-                                    pohyb.style.top=vstuphore+"px";
-                                    navratsnake=true;
+                                    pohybup();
                                  break;
                                  case 100:
-
-                                    vstuphore-=rychlost;
-                                    pohyb.style.top=vstuphore+"px";
-                                    navratsnake=true;
+                                    pohybup();
                                  break;
                                  case 150:
-
-                                    vstuphore-=rychlost;
-                                    pohyb.style.top=vstuphore+"px";
-                                    navratsnake=true;
+                                    pohybup();
                                  break;
                                  case 200:
-
-                                    vstuphore-=rychlost;
-                                    pohyb.style.top=vstuphore+"px";
-                                    navratsnake=true;
+                                    pohybup();
                                  break;
                                  case 250:
-
-                                    vstuphore-=rychlost;
-                                    pohyb.style.top=vstuphore+"px";
-                                    navratsnake=true;
+                                    pohybup();
                                  break;
                                  case 300:
-
-                                    vstuphore-=rychlost;
-                                    pohyb.style.top=vstuphore+"px";
-                                    navratsnake=true;
+                                    pohybup();
                                  break;
                                  case 350:
-
-                                    vstuphore-=rychlost;
-                                    pohyb.style.top=vstuphore+"px";
-                                    navratsnake=true;
+                                    pohybup();
                                  break;
                                  case 400:
-
-                                    vstuphore-=rychlost;
-                                    pohyb.style.top=vstuphore+"px";
-                                    navratsnake=true;
+                                    pohybup();
                                  break;
                                  case 450:
-
-                                    vstuphore-=rychlost;
-                                    pohyb.style.top=vstuphore+"px";
-                                    navratsnake=true;
+                                    pohybup();
                                  break;
                                    default:
                                       //DOTIAHNUTIE SACHOVNICE Z PREDOSLEJ STRANY
                                        if(aktivitaleftright==true){
                                           navratsnake=false;
-                                       vstupstrana-=rychlost;
-                                       pohyb.style.left=vstupstrana+"px";
+                                       pozicia[1]-=rychlost;
+                                       pohyb.style.left=pozicia[1]+"px";
+                                       pozicia[3]-=rychlost;
+                                       chvost.style.top=pozicia[2]-50+"px"; 
                                        
                                     }else{
                                        navratsnake=false;
-                                       vstupstrana+=rychlost;
-                                       pohyb.style.left=vstupstrana+"px";
+                                       pozicia[1]+=rychlost;
+                                       pohyb.style.left=pozicia[1]+"px";
+                                       
                                       
                                     }
 
@@ -140,28 +115,26 @@ function pohnut(event){
                           
                              
                               //AK JE SNAKE MIMO HRY - ZAKAZ KEYDOWN
-                              if(vstuphore<0){
-
-                                 mimohry=false;
-                                 
+                              if(pozicia[0]<0){
+                                mimohry=false;
                               }else{
                                  mimohry=true;
                                }
-                           //VRATIT AK MIMO SACHOVNICE
-                           if(vstuphore==-50){
-                              vstuphore=500;
-                           }
+
+                              //VRATIT AK MIMO SACHOVNICE
+                              if(pozicia[0]==-50){
+                                 pozicia[0]=500;
+                              }
+                              if(pozicia[2]==-50){
+                                 pozicia[2]=500;
+                              }
                        
                         }
-                   
-                    
                   
                   }
 
 //STLACENIE LEFT TLACITKA   
-
-      
-      if(event.key=="ArrowLeft" && poslednetlacitko !== "ArrowRight" && poslednetlacitko !== "ArrowLeft" && mimohry==true && navratsnake==true){
+          if(event.key=="ArrowLeft" && poslednetlacitko !== "ArrowRight" && poslednetlacitko !== "ArrowLeft" && mimohry==true && navratsnake==true){
 
             //STOP INTERVAL VOLANEJ FUNKCIE UP/DOWN
             clearInterval(dolee);
@@ -174,88 +147,61 @@ function pohnut(event){
             poslednetlacitko=event.key;
    //SPUSTENIE FUNKCIE-POHYB
    function ide3(){
+     
       trafil();
       
                  //POHYB PO SACHOVNICI
-                  switch(vstuphore){
+                  switch(pozicia[0]){
                      case 0:
-                        
-                        vstupstrana-=rychlost;
-                        pohyb.style.left=vstupstrana+"px";
-                        navratsnake=true;
+                        pohybleft();
                      break;
                      case 50:
-                        
-                        vstupstrana-=rychlost;
-                        pohyb.style.left=vstupstrana+"px";
-                        navratsnake=true;
+                        pohybleft();
                      break;
                      case 100:
-                        
-                        vstupstrana-=rychlost;
-                        pohyb.style.left=vstupstrana+"px";
-                        navratsnake=true;
+                        pohybleft();
                      break;
                      case 150:
-                        
-                        vstupstrana-=rychlost;
-                        pohyb.style.left=vstupstrana+"px";
-                        navratsnake=true;
+                        pohybleft();
                      break;
                      case 200:
-                        
-                        vstupstrana-=rychlost;
-                        pohyb.style.left=vstupstrana+"px";
-                        navratsnake=true;
+                        pohybleft();
                      break;
                      case 250:
-                        
-                        vstupstrana-=rychlost;
-                        pohyb.style.left=vstupstrana+"px";
-                        navratsnake=true;
+                        pohybleft();
                      break;
                      case 300:
-                        
-                        vstupstrana-=rychlost;
-                        pohyb.style.left=vstupstrana+"px";
-                        navratsnake=true;
+                        pohybleft();
                      break;
                      case 350:
-                        
-                        vstupstrana-=rychlost;
-                        pohyb.style.left=vstupstrana+"px";
-                        navratsnake=true;
+                        pohybleft();
                      break;
                      case 400:
-                        
-                        vstupstrana-=rychlost;
-                        pohyb.style.left=vstupstrana+"px";
-                        navratsnake=true;
+                        pohybleft();
                      break;
                      case 450:
-                        
-                        vstupstrana-=rychlost;
-                        pohyb.style.left=vstupstrana+"px";
-                        navratsnake=true;
+                        pohybleft();
                      break;
                      default:
                         //DOTIAHNUTIE SACHOVNICE Z PREDOSLEJ STRANY
                         if(aktivitaupdown==true){
                            navratsnake=false;
-                        vstuphore-=rychlost;
-                        pohyb.style.top=vstuphore+"px";
+                        pozicia[0]-=rychlost;
+                        pohyb.style.top=pozicia[0]+"px";
+                        pozicia[2]-=rychlost;
+                        chvost.style.top=pozicia[2]-50+"px";
 
                      }else{
                         navratsnake=false;
-                        vstuphore+=rychlost;
-                        pohyb.style.top=vstuphore+"px";
+                        pozicia[0]+=rychlost;
+                        pohyb.style.top=pozicia[0]+"px";
                      }
 
                   }
 
                     
                    //AK JE SNAKE MIMO HRY - ZAKAZ KEYDOWN
-                  if(vstupstrana<0){
+                  if(pozicia[1]<0){
                      mimohry=false;
                      
                   }else{
@@ -264,9 +210,12 @@ function pohnut(event){
                   }
                  
                   //VRATIT AK MIMO SACHOVNICE
-                  if(vstupstrana==-50){
-                  vstupstrana=500;
+                  if(pozicia[1]==-50){
+                  pozicia[1]=500;
                   }
+                  if(pozicia[3]==-50){
+                     pozicia[3]=500;
+                     }
                    
               
                   }
@@ -289,86 +238,57 @@ function pohnut(event){
               poslednetlacitko=event.key;
             //SPUSTENIE FUNKCIE-POHYB
             function ide2(){
+             
                trafil();
                            //POHYB PO SACHOVNICI
-                           switch(vstupstrana){
+                           switch(pozicia[1]){
                               case 0:
-                              
-                                 vstuphore+=rychlost;
-                                 pohyb.style.top=vstuphore+"px";
-                                 navratsnake=true;
+                                 pohybdown();
                               break;
                               case 50:
-                              
-                                 vstuphore+=rychlost;
-                                 pohyb.style.top=vstuphore+"px";
-                                 navratsnake=true;
+                                 pohybdown();
                               break;
                               case 100:
-                              
-                                 vstuphore+=rychlost;
-                                 pohyb.style.top=vstuphore+"px";
-                                 navratsnake=true;
+                                 pohybdown();
                               break;
                               case 150:
-                              
-                                 vstuphore+=rychlost;
-                                 pohyb.style.top=vstuphore+"px";
-                                 navratsnake=true;
+                                 pohybdown();
                               break;
                               case 200:
-                              
-                                 vstuphore+=rychlost;
-                                 pohyb.style.top=vstuphore+"px";
-                                 navratsnake=true;
+                                 pohybdown();
                               break;
                               case 250:
-                              
-                                 vstuphore+=rychlost;
-                                 pohyb.style.top=vstuphore+"px";
-                                 navratsnake=true;
+                                 pohybdown();
                               break;
                               case 300:
-                              
-                                 vstuphore+=rychlost;
-                                 pohyb.style.top=vstuphore+"px";
-                                 navratsnake=true;
+                                 pohybdown();
                               break;
                               case 350:
-                              
-                                 vstuphore+=rychlost;
-                                 pohyb.style.top=vstuphore+"px";
-                                 navratsnake=true;
+                                 pohybdown();
                               break;
                               case 400:
-                              
-                                 vstuphore+=rychlost;
-                                 pohyb.style.top=vstuphore+"px";
-                                 navratsnake=true;
+                                 pohybdown();
                               break;
                               case 450:
-                              
-                                 vstuphore+=rychlost;
-                                 pohyb.style.top=vstuphore+"px";
-                                 navratsnake=true;
+                                 pohybdown();
                               break;
                                  default:
                                     //DOTIAHNUTIE SACHOVNICE Z PREDOSLEJ STRANY
                                     if(aktivitaleftright==true){
                                        navratsnake=false;
-                                    vstupstrana-=rychlost;
-                                    pohyb.style.left=vstupstrana+"px";
+                                    pozicia[1]-=rychlost;
+                                    pohyb.style.left=pozicia[1]+"px";
 
                                  }else{
                                     navratsnake=false;
-                                    vstupstrana+=rychlost;
-                                    pohyb.style.left=vstupstrana+"px";
+                                    pozicia[1]+=rychlost;
+                                    pohyb.style.left=pozicia[1]+"px";
                                  }
                            }
                          
 
                            //AK JE SNAKE MIMO HRY - ZAKAZ KEYDOWN
-                           if(vstuphore>450){
+                           if(pozicia[0]>450){
                            mimohry=false;
                            
                            }else{
@@ -378,8 +298,8 @@ function pohnut(event){
 
                          
                            //VRATIT AK MIMO SACHOVNICE
-                           if(vstuphore>=500){
-                           vstuphore=0-vyskasnake;
+                           if(pozicia[0]>=500){
+                           pozicia[0]=0-vyskasnake;
                            }
                            }
                      
@@ -405,85 +325,56 @@ function pohnut(event){
             //SPUSTENIE FUNKCIE-POHYB
             function ide4(){
                trafil();
+           
                            //POHYB PO SACHOVNICI           
-                            switch(vstuphore){
+                            switch(pozicia[0]){
                                case 0:
-                                 
-                                 vstupstrana+=rychlost;
-                                 pohyb.style.left=vstupstrana+"px";
-                                 navratsnake=true;
+                                 pohybright();
                               break;
                               case 50:
-                                 
-                                 vstupstrana+=rychlost;
-                                 pohyb.style.left=vstupstrana+"px";
-                                 navratsnake=true;
+                                 pohybright();
                               break;
                               case 100:
-                                 
-                                 vstupstrana+=rychlost;
-                                 pohyb.style.left=vstupstrana+"px";
-                                 navratsnake=true;
+                                 pohybright();
                               break;
                               case 150:
-                                 
-                                 vstupstrana+=rychlost;
-                                 pohyb.style.left=vstupstrana+"px";
-                                 navratsnake=true;
+                                 pohybright();
                               break;
                               case 200:
-                                 
-                                 vstupstrana+=rychlost;
-                                 pohyb.style.left=vstupstrana+"px";
-                                 navratsnake=true;
+                                 pohybright();
                               break;
                               case 250:
-                                 
-                                 vstupstrana+=rychlost;
-                                 pohyb.style.left=vstupstrana+"px";
-                                 navratsnake=true;
+                                 pohybright();
                               break;
                               case 300:
-                                 
-                                 vstupstrana+=rychlost;
-                                 pohyb.style.left=vstupstrana+"px";
-                                 navratsnake=true;
+                                 pohybright();
                               break;
                               case 350:
-                                 
-                                 vstupstrana+=rychlost;
-                                 pohyb.style.left=vstupstrana+"px";
-                                 navratsnake=true;
+                                 pohybright();
                               break;
                               case 400:
-                                 
-                                 vstupstrana+=rychlost;
-                                 pohyb.style.left=vstupstrana+"px";
-                                 navratsnake=true;
+                                 pohybright();
                               break;
                               case 450:
-                                 
-                                 vstupstrana+=rychlost;
-                                 pohyb.style.left=vstupstrana+"px";
-                                 navratsnake=true;
+                                 pohybright();
                               break;
                                default:
                                   //DOTIAHNUTIE SACHOVNICE Z PREDOSLEJ STRANY
                                  if(aktivitaupdown==true){
                                     navratsnake=false;
-                                    vstuphore-=rychlost;
-                                    pohyb.style.top=vstuphore+"px";
+                                    pozicia[0]-=rychlost;
+                                    pohyb.style.top=pozicia[0]+"px";
 
                                  }else{
                                     navratsnake=false;
-                                    vstuphore+=rychlost;
-                                    pohyb.style.top=vstuphore+"px";
+                                    pozicia[0]+=rychlost;
+                                    pohyb.style.top=pozicia[0]+"px";
                                  } 
                            }
                             
 
                            //AK JE SNAKE MIMO HRY - ZAKAZ KEYDOWN
-                           if(vstupstrana>450){
+                           if(pozicia[1]>450){
                            mimohry=false;
                            
                            }else{
@@ -492,27 +383,60 @@ function pohnut(event){
                            }
 
                            //POHYB MIMO SACHOVNICE
-                           if(vstupstrana>=500){
-                           vstupstrana=0-sirkasnake;
+                           if(pozicia[1]>=500){
+                           pozicia[1]=0-sirkasnake;
                            }
                            }
                        
           }  
-         }     
-      
+         }    
+
+// MOTOR POHYBU SNAKE
+function pohybup(){
+   pozicia[0]-=rychlost;
+   pohyb.style.top=pozicia[0]+"px"; 
+   pozicia[2]-=rychlost;
+   chvost.style.top=pozicia[2]+"px"; 
+   navratsnake=true; 
+   console.log("0"+" "+ pozicia[0]);
+       console.log("1"+" "+ pozicia[1]);
+       console.log("2"+" "+ pozicia[2]);
+       console.log("3"+" "+ pozicia[3]);
+}        
+function pohybdown(){
+   pozicia[0]+=rychlost;
+   pohyb.style.top=pozicia[0]+"px";
+   
+   navratsnake=true;
+   console.log("0"+" "+ pozicia[0]);
+       console.log("1"+" "+ pozicia[1]);
+       console.log("2"+" "+ pozicia[2]);
+       console.log("3"+" "+ pozicia[3]);
+} 
+function pohybleft(){
+   pozicia[1]-=rychlost;
+   pohyb.style.left=pozicia[1]+"px";
+   pozicia[3]-=rychlost;
+   chvost.style.left=pozicia[3]+50+"px";
+   navratsnake=true;
+}  
+function pohybright(){
+   pozicia[1]+=rychlost;
+   pohyb.style.left=pozicia[1]+"px";
+   
+   navratsnake=true;
+} 
+
  //AK SNAKE ZIJE JEDLO        
  function trafil(){
    
-  if(novakockatop==vstuphore+"px" && novakockaleft==vstupstrana+"px"){
-   
-   vytvor();
-   
-   chvostik();
+      if(novakockatop==pozicia[0]+"px" && novakockaleft==pozicia[1]+"px"){
+            vytvor();
+            chvostik();
+         }
+      }
 
-}
-}
-
-// vytvorenie jedla
+//VYTVORENIE JEDLA
 function vytvor(){
     
    jedlokocka={
@@ -532,58 +456,31 @@ novakockatop=vytor.style.top=(jedlokocka.x)+"px";
 novakockaleft=vytor.style.left=(jedlokocka.y)+"px";
 }
 
-
-
-// vytvaranie noveho elementu
+//VYTVARANIE CHVOSTA SNAKE
 function chvostik(){
-   
-pole[1]=vstupstrana;
-pole[0]=vstuphore;
-
-
-   console.log(pole[0] + " " + pole[1]);
-
-
-   chvostt={
-      sirka: 50,
-      vyska: 50,
-       x: pole[0],
-       y: pole[1]
+   pozicia[2]=pozicia[0]+50;
+   pozicia[3]=pozicia[1]+50;
+   jedlokocka1={
+       x1: pozicia[2],
+       y1: pozicia[3]
        };
+       console.log("0"+" "+ pozicia[0]);
+       console.log("1"+" "+ pozicia[1]);
+       console.log("2"+" "+ pozicia[2]);
+       console.log("3"+" "+ pozicia[3]);
+       chvost=document.createElement("div");
+chvost.style.background="green";
+chvost.style.height=50+"px";
+chvost.style.width=50+"px";
 
+
+celahra.appendChild(chvost);
 chvost.style.position="absolute";
-chvost.style.background="blue";
-chvost.style.height=chvostt.sirka+"px";
-chvost.style.width=chvostt.vyska+"px";
+ chvost.style.top=(jedlokocka1.x1)+"px";
+ chvost.style.left=(jedlokocka1.y1)+"px";
 
-
-chvost.style.top=(chvostt.x)+"px";
-chvost.style.left=(chvostt.y)+"px";
+ 
 }
-
-// function trafa(){
-   
-  
-//    jedlokocka={
-//       sirka: 50,
-//       vyska: 50,
-//        x: Math.floor(Math.random() * 10),
-//        y: Math.floor(Math.random() * 10)
-//        };
-
-       
-     
-// vytor=document.createElement("div");
-// vytor.style.background="blue";
-// vytor.style.height=jedlokocka.sirka+"px";
-// vytor.style.width=jedlokocka.vyska+"px";
-
-// vloz.appendChild(vytor);
-// vytor.style.position="absolute";
-//  novakockatop= vytor.style.top=(jedlokocka.x * 50)+"px";
-//  novakockaleft=vytor.style.left=(jedlokocka.y * 50)+"px";
-
-// }
 
 
 
