@@ -225,7 +225,7 @@ function pohnut(event){
                      }
                      //VYTVARANIE CHVOSTA CEZ POLE//
                      function pridajpole(){
-                     ako= ako.splice(-1 * 2);
+                     ako= ako.splice(+1 * 3);
                      var naplnleft=pozicia[1];
                      var naplnup=pozicia[0];
                      //PUSNUT STARU POZICIU DO POLA PRE CHVOST
@@ -422,7 +422,7 @@ function pohnut(event){
                   }
                   //VYTVARANIE CHVOSTA CEZ POLE//
                   function pridajpole(){
-                     ako= ako.splice(-1 * 2);
+                     ako= ako.splice(+1 * 3);
                      var naplnleft=pozicia[1];
                      var naplnup=pozicia[0];
                      //PUSNUT STARU POZICIU DO POLA PRE CHVOST
@@ -616,7 +616,7 @@ function pohnut(event){
                }
                //VYTVARANIE CHVOSTA CEZ POLE//
                function pridajpole(){
-                  ako= ako.splice(-1 * 2);
+                  ako= ako.splice(+1 * 3);
                   var naplnleft=pozicia[1];
                   var naplnup=pozicia[0];
                   //PUSNUT STARU POZICIU DO POLA PRE CHVOST
@@ -816,7 +816,7 @@ function pohnut(event){
                   }
                   //VYTVARANIE CHVOSTA CEZ POLE//
                   function pridajpole(){
-                     ako= ako.splice(-1 * 2);
+                     ako= ako.splice(+1 * 3);
                      var naplnleft=pozicia[1];
                      var naplnup=pozicia[0];
                      //PUSNUT STARU POZICIU DO POLA PRE CHVOST
@@ -853,7 +853,7 @@ function mazaniechvosta(){
       var ccc= document.querySelectorAll("div");
 
       if(ccc.length>navyseniechvosta){
-      ccc[3].remove();
+       ccc[3].remove();
       } 
 }
       
