@@ -1,8 +1,8 @@
+
 /////////////////////////////////////////////////////////
 ///////////////////////// SNAKE /////////////////////////
 /////////////////////////////////////////////////////////
 
-///////////////////////DEKLARACIE///////////////////////
 
 //VYTVORENIE HLAVICKY SNAKE//
 var pohyb=document.getElementById("snake");
@@ -19,9 +19,9 @@ vloz.appendChild(vytor);
 //OTOCENIE TVARE SNAKE
 //tvar= document.getElementById("snake");
 
-//RYCHLOST SNKAE
-var fps=1;
-var rychlost=1;
+//spomalenie SNKAE
+var speed=1;
+var spomalenie=1;
 //POLIA SNAKE
 var pozicia=[200,200];
 var ako=[];
@@ -59,14 +59,9 @@ function pohnut(event){
                //OZNACENIE Z KTOREJ STRANY PRICHADZA
                aktivitaupdown=true;
                //NASTAVENIE INTERVALU A VOLANIE FUNKCIE
-               hore= setInterval(ide1,fps);
+               hore= setInterval(ide1,speed);
                //OZNACENIE POSLEDNEHO TLACITKA
                poslednetlacitko=event.key;
-               //OTOCENIE TVARE SNAKE
-               // tvar.style.borderTopLeftRadius = "25px";
-               // tvar.style.borderTopRightRadius = "25px";
-               // tvar.style.borderBottomLeftRadius = "0px";
-               // tvar.style.borderBottomRightRadius = "0px";
                //VYTVARANIE CHVOSTA
                jednorazovakocka=true;
                novychvost=false;
@@ -76,7 +71,7 @@ function pohnut(event){
                   trafil();
                   //AKTIVNY POHYB SNAKE UP
                   function pohybup(){
-                     pozicia[0]-=rychlost;
+                     pozicia[0]-=spomalenie;
                      pohyb.style.top=pozicia[0]+"px"; 
                      navratsnake=true; 
                      mazaniechvosta();
@@ -205,11 +200,11 @@ function pohnut(event){
                   //DOTIAHNUTIE SACHOVNICE Z PREDOSLEJ STRANY
                   if(aktivitaleftright==true){
                      navratsnake=false;
-                     pozicia[1]-=rychlost;
+                     pozicia[1]-=spomalenie;
                      pohyb.style.left=pozicia[1]+"px";
                   }else{
                      navratsnake=false;
-                     pozicia[1]+=rychlost;
+                     pozicia[1]+=spomalenie;
                      pohyb.style.left=pozicia[1]+"px";
                      }
                   }
@@ -219,33 +214,8 @@ function pohnut(event){
                   }else{
                      mimohry=true;
                   }
-                  //VRATIT AK MIMO SACHOVNICE
-                  if(pozicia[0]==-50){
-                     pozicia[0]=500;
-                     }
-                     //VYTVARANIE CHVOSTA CEZ POLE//
-                     function pridajpole(){
-                     ako= ako.splice(+1 * 3);
-                     var naplnleft=pozicia[1];
-                     var naplnup=pozicia[0];
-                     //PUSNUT STARU POZICIU DO POLA PRE CHVOST
-                     ako.push([naplnleft,naplnup]);
-                     //CYKLUS VYTVARANIE NOVEHO CHVOSTA A ZADANIE JEHO SURADNIC
-                     for(var i=0; i<ako.length;i++){
-                     var chvost=document.createElement("div");
-                     vloz.appendChild(chvost);
-                     chvost.className.add="chvosticek";
-                     chvost.style.position="absolute";
-                     chvost.style.height=50+"px";
-                     chvost.style.width=50+"px";
-                     chvost.style.background="blue";
-                     //ZADNIE SURADNIC
-                     chvost.style.left=(ako[i][0])+"px";
-                     chvost.style.top=(ako[i][1])+"px";
-                     }
-                     }    
-                   }
-                   }
+               }
+            }
 
 //STLACENIE LEFT TLACITKA   
       if(event.key=="ArrowLeft" && poslednetlacitko !== "ArrowRight" && poslednetlacitko !== "ArrowLeft" && mimohry==true && navratsnake==true){
@@ -255,14 +225,9 @@ function pohnut(event){
             //OZNACENIE Z KTOREJ STRANY PRICHADZA
             aktivitaleftright=true;
             //NASTAVENIE INTERVALU A VOLANIE FUNKCIE
-            lava= setInterval(ide3,fps);
+            lava= setInterval(ide3,speed);
             //OZNACENIE POSLEDNEHO TLACITKA
             poslednetlacitko=event.key;
-            //OTOCENIE TVARE SNAKE
-            // tvar.style.borderTopLeftRadius = "25px";
-            // tvar.style.borderTopRightRadius = "0px";
-            // tvar.style.borderBottomLeftRadius = "25px";
-            // tvar.style.borderBottomRightRadius = "0px";
             //VYTVARANIE CHVOSTA
             jednorazovakocka=true;
             novychvost=false;
@@ -272,7 +237,7 @@ function pohnut(event){
                   trafil();
                   //AKTIVNY POHYB SNAKE LEFT
                   function pohybleft(){
-                     pozicia[1]-=rychlost;
+                     pozicia[1]-=spomalenie;
                      pohyb.style.left=pozicia[1]+"px";
                      navratsnake=true;
                      mazaniechvosta();
@@ -401,11 +366,11 @@ function pohnut(event){
                   //DOTIAHNUTIE SACHOVNICE Z PREDOSLEJ STRANY
                   if(aktivitaupdown==true){
                      navratsnake=false;
-                     pozicia[0]-=rychlost;
+                     pozicia[0]-=spomalenie;
                      pohyb.style.top=pozicia[0]+"px";
                   }else{
                      navratsnake=false;
-                     pozicia[0]+=rychlost;
+                     pozicia[0]+=spomalenie;
                      pohyb.style.top=pozicia[0]+"px";
                      }
                   }
@@ -420,29 +385,8 @@ function pohnut(event){
                   if(pozicia[1]==-50){
                      pozicia[1]=500;
                   }
-                  //VYTVARANIE CHVOSTA CEZ POLE//
-                  function pridajpole(){
-                     ako= ako.splice(+1 * 3);
-                     var naplnleft=pozicia[1];
-                     var naplnup=pozicia[0];
-                     //PUSNUT STARU POZICIU DO POLA PRE CHVOST
-                     ako.push([naplnleft,naplnup]);
-                     //CYKLUS VYTVARANIE NOVEHO CHVOSTA A ZADANIE JEHO SURADNIC
-                     for(var i=0; i<ako.length;i++){
-                     var chvost=document.createElement("div");
-                     vloz.appendChild(chvost);
-                     chvost.className.add="chvosticek";
-                     chvost.style.position="absolute";
-                     chvost.style.height=50+"px";
-                     chvost.style.width=50+"px";
-                     chvost.style.background="blue";
-                     //ZADNIE SURADNIC
-                     chvost.style.left=(ako[i][0])+"px";
-                     chvost.style.top=(ako[i][1])+"px";
-                     }
-                     }    
-                  }
-                  }
+               }
+            }
  //STLACENIE DOWN TLACITKA                         
          if(event.key=="ArrowDown" && poslednetlacitko !== "ArrowUp" && poslednetlacitko !== "ArrowDown" && mimohry==true && navratsnake==true){
                   //STOP INTERVAL VOLANEJ FUNKCIE PRAVA/LAVA
@@ -451,14 +395,9 @@ function pohnut(event){
                   //OZNACENIE Z KTOREJ STRANY PRICHADZA
                   aktivitaupdown=false;
                   //NASTAVENIE INTERVALU A VOLANIE FUNKCIE
-                  dole= setInterval(ide2,fps);
+                  dole= setInterval(ide2,speed);
                   //OZNACENIE POSLEDNEHO TLACITKA
                   poslednetlacitko=event.key;
-                  //OTOCENIE TVARE SNAKE
-                  // tvar.style.borderTopLeftRadius = "0px";
-                  // tvar.style.borderTopRightRadius = "0px";
-                  // tvar.style.borderBottomLeftRadius = "25px";
-                  // tvar.style.borderBottomRightRadius = "25px";
                   //VYTVARANIE CHVOSTA
                   jednorazovakocka=true;
                   novychvost=false;
@@ -468,7 +407,7 @@ function pohnut(event){
                trafil();
                //AKTIVNY POHYB SNAKE DOWN
                function pohybdown(){
-                  pozicia[0]+=rychlost;
+                  pozicia[0]+=spomalenie;
                   pohyb.style.top=pozicia[0]+"px";
                   navratsnake=true;
                   mazaniechvosta();
@@ -595,11 +534,11 @@ function pohnut(event){
                //DOTIAHNUTIE SACHOVNICE Z PREDOSLEJ STRANY
                if(aktivitaleftright==true){
                   navratsnake=false;
-                  pozicia[1]-=rychlost;
+                  pozicia[1]-=spomalenie;
                   pohyb.style.left=pozicia[1]+"px";
                }else{
                   navratsnake=false;
-                  pozicia[1]+=rychlost;
+                  pozicia[1]+=spomalenie;
                   pohyb.style.left=pozicia[1]+"px";
                }
                }
@@ -614,29 +553,8 @@ function pohnut(event){
                if(pozicia[0]==550){
                pozicia[0]=-50;
                }
-               //VYTVARANIE CHVOSTA CEZ POLE//
-               function pridajpole(){
-                  ako= ako.splice(+1 * 3);
-                  var naplnleft=pozicia[1];
-                  var naplnup=pozicia[0];
-                  //PUSNUT STARU POZICIU DO POLA PRE CHVOST
-                  ako.push([naplnleft,naplnup]);
-                  //CYKLUS VYTVARANIE NOVEHO CHVOSTA A ZADANIE JEHO SURADNIC
-                  for(var i=0; i<ako.length;i++){
-                  var chvost=document.createElement("div");
-                  vloz.appendChild(chvost);
-                  chvost.className.add="chvosticek";
-                  chvost.style.position="absolute";
-                  chvost.style.height=50+"px";
-                  chvost.style.width=50+"px";
-                  chvost.style.background="blue";
-                  //ZADNIE SURADNIC
-                  chvost.style.left=(ako[i][0])+"px";
-                  chvost.style.top=(ako[i][1])+"px";
-                  }
-                  }    
-               }
-               } 
+            }
+         } 
 
 
 //STLACENIE RIGHT TLACITKA
@@ -647,14 +565,9 @@ function pohnut(event){
                      //OZNACENIE Z KTOREJ STRANY PRICHADZA
                      aktivitaleftright=false;
                      //NASTAVENIE INTERVALU A VOLANIE FUNKCIE
-                     prava= setInterval(ide4,fps);
+                     prava= setInterval(ide4,speed);
                      //OZNACENIE POSLEDNEHO TLACITKA
                      poslednetlacitko=event.key;
-                     //OTOCENIE TVARE SNAKE
-                     // tvar.style.borderTopLeftRadius = "0px";
-                     // tvar.style.borderTopRightRadius = "25px";
-                     // tvar.style.borderBottomLeftRadius = "0px";
-                     // tvar.style.borderBottomRightRadius = "25px";
                      //VYTVARANIE CHVOSTA
                      jednorazovakocka=true;
                      novychvost=false;
@@ -664,7 +577,7 @@ function pohnut(event){
                   trafil();
                   //AKTIVNY POHYB SNAKE RIGHT
                   function pohybright(){
-                     pozicia[1]+=rychlost;
+                     pozicia[1]+=spomalenie;
                      pohyb.style.left=pozicia[1]+"px";
                      navratsnake=true;
                      mazaniechvosta();
@@ -791,12 +704,12 @@ function pohnut(event){
                   //DOTIAHNUTIE SACHOVNICE Z PREDOSLEJ STRANY
                   if(aktivitaupdown==true){
                      navratsnake=false;
-                     pozicia[0]-=rychlost;
+                     pozicia[0]-=spomalenie;
                      pohyb.style.top=pozicia[0]+"px";
 
                   }else{
                      navratsnake=false;
-                     pozicia[0]+=rychlost;
+                     pozicia[0]+=spomalenie;
                      pohyb.style.top=pozicia[0]+"px";
                      } 
                   }
@@ -804,42 +717,40 @@ function pohnut(event){
                   //AK JE SNAKE MIMO HRY - ZAKAZ KEYDOWN
                   if(pozicia[1]>450){
                      mimohry=false;
-
                   }else{
                      mimohry=true;
-
                   }
 
                   //POHYB MIMO SACHOVNICE
                   if(pozicia[1]==500){
                      pozicia[1]=-50;
                   }
-                  //VYTVARANIE CHVOSTA CEZ POLE//
-                  function pridajpole(){
-                     ako= ako.splice(+1 * 3);
-                     var naplnleft=pozicia[1];
-                     var naplnup=pozicia[0];
-                     //PUSNUT STARU POZICIU DO POLA PRE CHVOST
-                     ako.push([naplnleft,naplnup]);
-                     //CYKLUS VYTVARANIE NOVEHO CHVOSTA A ZADANIE JEHO SURADNIC
-                     for(var i=0; i<ako.length;i++){
-                     var chvost=document.createElement("div");
-                     vloz.appendChild(chvost);
-                     chvost.className.add="chvosticek";
-                     chvost.style.position="absolute";
-                     chvost.style.height=50+"px";
-                     chvost.style.width=50+"px";
-                     chvost.style.background="blue";
-                     //ZADNIE SURADNIC
-                     chvost.style.left=(ako[i][0])+"px";
-                     chvost.style.top=(ako[i][1])+"px";
-                     }
-                     }    
-                  }
-                  }  
-                  }
-                       
- 
+               }
+            }  
+         }
+
+//VYTVARANIE CHVOSTA CEZ POLE// 
+function pridajpole(){
+   ako= ako.splice(+1 * 3);
+   var naplnleft=pozicia[1];
+   var naplnup=pozicia[0];
+   //PUSNUT STARU POZICIU DO POLA PRE CHVOST
+   ako.push([naplnleft,naplnup]);
+   //CYKLUS VYTVARANIE NOVEHO CHVOSTA A ZADANIE JEHO SURADNIC
+   for(var i=0; i<ako.length;i++){
+      var chvost=document.createElement("div");
+      vloz.appendChild(chvost);
+      chvost.className.add="chvosticek";
+      chvost.style.position="absolute";
+      chvost.style.height=50+"px";
+      chvost.style.width=50+"px";
+      chvost.style.background="blue";
+      //ZADNIE SURADNIC
+      chvost.style.left=(ako[i][0])+"px";
+      chvost.style.top=(ako[i][1])+"px";
+   }
+}   
+
 //AK SNAKE ZIJE JEDLO        
 function trafil(){
 if(novakockatop==pozicia[0]+"px" && novakockaleft==pozicia[1]+"px"){
@@ -851,8 +762,7 @@ if(novakockatop==pozicia[0]+"px" && novakockaleft==pozicia[1]+"px"){
 //MAZANIE POSLEDNEHO CHVOSTA
 function mazaniechvosta(){
       var ccc= document.querySelectorAll("div");
-
-      if(ccc.length>navyseniechvosta){
+           if(ccc.length>navyseniechvosta){
        ccc[3].remove();
       } 
 }
@@ -862,7 +772,7 @@ function vytvor(){
       //NAHODNE SURADNICE
        x= Math.floor(Math.random() * 10) * 50,
        y= Math.floor(Math.random() * 10) * 50
-      //VYTVORENIE JEDLA
+      //VYTVORENIE JEDLA 
       vytor.style.position="absolute";
       vytor.style.background="red";
       vytor.style.height=50+"px";
