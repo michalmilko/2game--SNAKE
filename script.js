@@ -214,6 +214,10 @@ function pohnut(event){
                   }else{
                      mimohry=true;
                   }
+                  //VRATIT AK MIMO SACHOVNICE
+               if(pozicia[0]==-50 ){
+                  pozicia[0]=500;
+                  }
                }
             }
 
