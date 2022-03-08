@@ -1,8 +1,6 @@
-
 /////////////////////////////////////////////////////////
 ///////////////////////// SNAKE /////////////////////////
 /////////////////////////////////////////////////////////
-
 
 //VYTVORENIE HLAVICKY SNAKE//
 var pohyb=document.getElementById("snake");
@@ -67,6 +65,7 @@ function pohnut(event){
                novychvost=false;
          //SPUSTENIE FUNKCIE-POHYB
          function ide1(){
+           
                   //TRAFIL JEDLO
                   trafil();
                   //AKTIVNY POHYB SNAKE UP
@@ -218,6 +217,7 @@ function pohnut(event){
                if(pozicia[0]==-50 ){
                   pozicia[0]=500;
                   }
+                  naburanie();
                }
             }
 
@@ -237,6 +237,7 @@ function pohnut(event){
             novychvost=false;
       //SPUSTENIE FUNKCIE-POHYB
       function ide3(){
+         
                   //TRAFIL JEDLO
                   trafil();
                   //AKTIVNY POHYB SNAKE LEFT
@@ -389,6 +390,7 @@ function pohnut(event){
                   if(pozicia[1]==-50){
                      pozicia[1]=500;
                   }
+                  naburanie();
                }
             }
  //STLACENIE DOWN TLACITKA                         
@@ -407,6 +409,7 @@ function pohnut(event){
                   novychvost=false;
             //SPUSTENIE FUNKCIE-POHYB
             function ide2(){
+              
                //TRAFIL JEDLO
                trafil();
                //AKTIVNY POHYB SNAKE DOWN
@@ -557,6 +560,7 @@ function pohnut(event){
                if(pozicia[0]==550){
                pozicia[0]=-50;
                }
+               naburanie();
             }
          } 
 
@@ -577,6 +581,7 @@ function pohnut(event){
                      novychvost=false;
             //SPUSTENIE FUNKCIE-POHYB
             function ide4(){
+               
                   //TRAFIL JEDLO
                   trafil();
                   //AKTIVNY POHYB SNAKE RIGHT
@@ -729,17 +734,18 @@ function pohnut(event){
                   if(pozicia[1]==500){
                      pozicia[1]=-50;
                   }
+                  naburanie();
                }
             }  
          }
 
 //VYTVARANIE CHVOSTA CEZ POLE// 
 function pridajpole(){
-   ako= ako.splice(+1 * 3);
-   var naplnleft=pozicia[1];
-   var naplnup=pozicia[0];
+      ako= ako.splice(+1 * 3);
+      var naplnleft=pozicia[1];
+      var naplnup=pozicia[0];
    //PUSNUT STARU POZICIU DO POLA PRE CHVOST
-   ako.push([naplnleft,naplnup]);
+      ako.push([naplnleft,naplnup]);
    //CYKLUS VYTVARANIE NOVEHO CHVOSTA A ZADANIE JEHO SURADNIC
    for(var i=0; i<ako.length;i++){
       var chvost=document.createElement("div");
@@ -749,14 +755,15 @@ function pridajpole(){
       chvost.style.height=50+"px";
       chvost.style.width=50+"px";
       chvost.style.background="blue";
-      //ZADNIE SURADNIC
+   //ZADNIE SURADNIC
       chvost.style.left=(ako[i][0])+"px";
       chvost.style.top=(ako[i][1])+"px";
+      
    }
 }   
 
 //AK SNAKE ZIJE JEDLO        
-function trafil(){
+function trafil(){ 
 if(novakockatop==pozicia[0]+"px" && novakockaleft==pozicia[1]+"px"){
    vytvor();
    navyseniechvosta++;
@@ -766,28 +773,68 @@ if(novakockatop==pozicia[0]+"px" && novakockaleft==pozicia[1]+"px"){
 //MAZANIE POSLEDNEHO CHVOSTA
 function mazaniechvosta(){
       var ccc= document.querySelectorAll("div");
-           if(ccc.length>navyseniechvosta){
-       ccc[3].remove();
+      if(ccc.length>navyseniechvosta){
+      ccc[3].remove();
       } 
 }
       
 //VYTVORENIE JEDLA
 function vytvor(){
-      //NAHODNE SURADNICE
-       x= Math.floor(Math.random() * 10) * 50,
-       y= Math.floor(Math.random() * 10) * 50
+   //NACITANIE CHVOSTOVYCH SURADNIC
+   var chvost1= document.querySelectorAll("div");
+  //NAHODNE SURADNICE
+       x= Math.floor(Math.random() * 10) * 50;
+       y= Math.floor(Math.random() * 10) * 50;
+  //KONTROLA CI NEJSU NAHODNE SURADNICE POD CHVOSTOM     
+   for(var i=2; i<chvost1.length; i++){
+   if(chvost1[i].style.top==x+"px" && chvost1[i].style.left==y+"px"){
+      console.log("TRAFIL");
+      vytvor();
+   }else{
       //VYTVORENIE JEDLA 
       vytor.style.position="absolute";
       vytor.style.background="red";
       vytor.style.height=50+"px";
       vytor.style.width=50+"px";
       vytor.style.borderRadius=30+"px";
+
       novakockatop=vytor.style.top=(x)+"px";
       novakockaleft=vytor.style.left=(y)+"px";
       }
+   }
+}
 
+//KED SNAKE NABURA
+function naburanie(){
+   var had= document.querySelector("#snake");
+   var diva= document.querySelectorAll("div");
+  
+   for(var i=3; i<diva.length; i++)
+      {
+         var suradniceTOPchvost = diva[i].style.top;
+         var suradniceLEFTchvost = diva[i].style.left;
 
+         if(suradniceLEFTchvost==had.style.left && suradniceTOPchvost==had.style.top){
+         
+        resetnut();
+      }
+}
+}
+function resetnut(){
+   var hadik= document.querySelector("#snake");
+   var divak= document.querySelectorAll("div");
 
+               clearInterval(hore);
+               clearInterval(dole);
+               clearInterval(prava);
+               clearInterval(lava);
 
-
-
+   for(var i=3; i<divak.length; i++){
+         
+              
+              divak[i].remove();
+      
+      }
+      hadik.style.top = 200+"px";
+      hadik.style.left = 200+"px";
+   }
