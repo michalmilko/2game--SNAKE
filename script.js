@@ -17,9 +17,9 @@ vloz.appendChild(vytor);
 //OTOCENIE TVARE SNAKE
 //tvar= document.getElementById("snake");
 
-//spomalenie SNKAE
+//kroky SNKAE
 var speed=1;
-var spomalenie=1;
+var kroky=1;
 //POLIA SNAKE
 var pozicia=[200,200];
 var ako=[];
@@ -70,7 +70,7 @@ function pohnut(event){
                   trafil();
                   //AKTIVNY POHYB SNAKE UP
                   function pohybup(){
-                     pozicia[0]-=spomalenie;
+                     pozicia[0]-=kroky;
                      pohyb.style.top=pozicia[0]+"px"; 
                      navratsnake=true; 
                      mazaniechvosta();
@@ -199,11 +199,11 @@ function pohnut(event){
                   //DOTIAHNUTIE SACHOVNICE Z PREDOSLEJ STRANY
                   if(aktivitaleftright==true){
                      navratsnake=false;
-                     pozicia[1]-=spomalenie;
+                     pozicia[1]-=kroky;
                      pohyb.style.left=pozicia[1]+"px";
                   }else{
                      navratsnake=false;
-                     pozicia[1]+=spomalenie;
+                     pozicia[1]+=kroky;
                      pohyb.style.left=pozicia[1]+"px";
                      }
                   }
@@ -242,7 +242,7 @@ function pohnut(event){
                   trafil();
                   //AKTIVNY POHYB SNAKE LEFT
                   function pohybleft(){
-                     pozicia[1]-=spomalenie;
+                     pozicia[1]-=kroky;
                      pohyb.style.left=pozicia[1]+"px";
                      navratsnake=true;
                      mazaniechvosta();
@@ -371,11 +371,11 @@ function pohnut(event){
                   //DOTIAHNUTIE SACHOVNICE Z PREDOSLEJ STRANY
                   if(aktivitaupdown==true){
                      navratsnake=false;
-                     pozicia[0]-=spomalenie;
+                     pozicia[0]-=kroky;
                      pohyb.style.top=pozicia[0]+"px";
                   }else{
                      navratsnake=false;
-                     pozicia[0]+=spomalenie;
+                     pozicia[0]+=kroky;
                      pohyb.style.top=pozicia[0]+"px";
                      }
                   }
@@ -414,7 +414,7 @@ function pohnut(event){
                trafil();
                //AKTIVNY POHYB SNAKE DOWN
                function pohybdown(){
-                  pozicia[0]+=spomalenie;
+                  pozicia[0]+=kroky;
                   pohyb.style.top=pozicia[0]+"px";
                   navratsnake=true;
                   mazaniechvosta();
@@ -541,11 +541,11 @@ function pohnut(event){
                //DOTIAHNUTIE SACHOVNICE Z PREDOSLEJ STRANY
                if(aktivitaleftright==true){
                   navratsnake=false;
-                  pozicia[1]-=spomalenie;
+                  pozicia[1]-=kroky;
                   pohyb.style.left=pozicia[1]+"px";
                }else{
                   navratsnake=false;
-                  pozicia[1]+=spomalenie;
+                  pozicia[1]+=kroky;
                   pohyb.style.left=pozicia[1]+"px";
                }
                }
@@ -557,7 +557,7 @@ function pohnut(event){
                   mimohry=true;
                }
                //VRATIT AK MIMO SACHOVNICE
-               if(pozicia[0]==550){
+               if(pozicia[0]==500){
                pozicia[0]=-50;
                }
                naburanie();
@@ -586,7 +586,7 @@ function pohnut(event){
                   trafil();
                   //AKTIVNY POHYB SNAKE RIGHT
                   function pohybright(){
-                     pozicia[1]+=spomalenie;
+                     pozicia[1]+=kroky;
                      pohyb.style.left=pozicia[1]+"px";
                      navratsnake=true;
                      mazaniechvosta();
@@ -713,12 +713,12 @@ function pohnut(event){
                   //DOTIAHNUTIE SACHOVNICE Z PREDOSLEJ STRANY
                   if(aktivitaupdown==true){
                      navratsnake=false;
-                     pozicia[0]-=spomalenie;
+                     pozicia[0]-=kroky;
                      pohyb.style.top=pozicia[0]+"px";
 
                   }else{
                      navratsnake=false;
-                     pozicia[0]+=spomalenie;
+                     pozicia[0]+=kroky;
                      pohyb.style.top=pozicia[0]+"px";
                      } 
                   }
@@ -760,6 +760,7 @@ function pridajpole(){
       chvost.style.top=(ako[i][1])+"px";
       
    }
+   
 }   
 
 //AK SNAKE ZIJE JEDLO        
@@ -771,10 +772,14 @@ if(novakockatop==pozicia[0]+"px" && novakockaleft==pozicia[1]+"px"){
 }
 
 //MAZANIE POSLEDNEHO CHVOSTA
+
 function mazaniechvosta(){
+   
       var ccc= document.querySelectorAll("div");
       if(ccc.length>navyseniechvosta){
+        
       ccc[3].remove();
+   
       } 
 }
       
@@ -788,12 +793,12 @@ function vytvor(){
   //KONTROLA CI NEJSU NAHODNE SURADNICE POD CHVOSTOM     
    for(var i=2; i<chvost1.length; i++){
    if(chvost1[i].style.top==x+"px" && chvost1[i].style.left==y+"px"){
-      console.log("TRAFIL");
       vytvor();
    }else{
       //VYTVORENIE JEDLA 
       vytor.style.position="absolute";
-      vytor.style.background="red";
+      vytor.style.backgroundImage = "url('./image/food.png')";
+      vytor.style.backgroundSize= "cover";
       vytor.style.height=50+"px";
       vytor.style.width=50+"px";
       vytor.style.borderRadius=30+"px";
@@ -808,33 +813,43 @@ function vytvor(){
 function naburanie(){
    var had= document.querySelector("#snake");
    var diva= document.querySelectorAll("div");
-  
+   //diva.style.background="red";
    for(var i=3; i<diva.length; i++)
       {
+         //NACITANIE SNAKE CHVOSTA
          var suradniceTOPchvost = diva[i].style.top;
          var suradniceLEFTchvost = diva[i].style.left;
-
+         //AK NABURA
          if(suradniceLEFTchvost==had.style.left && suradniceTOPchvost==had.style.top){
-         
-        resetnut();
-      }
-}
-}
-function resetnut(){
-   var hadik= document.querySelector("#snake");
-   var divak= document.querySelectorAll("div");
-
                clearInterval(hore);
                clearInterval(dole);
                clearInterval(prava);
                clearInterval(lava);
 
-   for(var i=3; i<divak.length; i++){
-         
-              
-              divak[i].remove();
-      
+               setTimeout(step1, 50);
+               setTimeout(step2, 600);
+               setTimeout(step3, 1200);
+               setInterval(koniec, 1500);
+               //PO NABURANI BLIKANIE FARBY
+               function step1(){
+                  for(var j=3;j<diva.length;j++){
+                     diva[j].style.background="red";
+                  }
+               }
+               function step2(){
+                  for(var x=3;x<diva.length;x++){
+                     diva[x].style.background="blue";
+                  }
+               }
+               function step3(){
+                  for(var y=3;y<diva.length;y++){
+                     diva[y].style.background="red";
+                  }
+               }
+               //RESTARTOVANIE HRY
+               function koniec(){
+                location.reload();
+               }
       }
-      hadik.style.top = 200+"px";
-      hadik.style.left = 200+"px";
    }
+}
